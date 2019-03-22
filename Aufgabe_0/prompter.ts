@@ -1,8 +1,8 @@
 function FunktionPrompter() {
     var person:string = prompt("Bitte fügen Sie Ihren Namen ein", "Name");
-    if (person != null) {   /* Prompter mit Textfeld, variable für Nameneingabe*/ 
+    if (person != null) {   /* Prompter mit Textfeld, Variable für Nameneingabe*/ 
       document.getElementById("PromptText").innerHTML =
       "Hallo " + person + "! Ich hoffe Du hast einen schönen Tag !";
-    } /* Ausgabe des Begrüßungs */ 
+    } /* Ausgabe des Begrüßungstext mit den Werten der Variable */ 
     console.info ("Hallo " + person + "! Ich hoffe Du hast einen schönen Tag !");
-  }
+} /* Ausgabe des Textes in der Konsole */
