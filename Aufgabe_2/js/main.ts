@@ -178,13 +178,13 @@ function deckLaden():void{
 
 
 function karteZiehen():void {
-    let n:number = Math.floor(Math.random() * (Deck.length-1)); //Zufallsgenerator und prüfung auf Wiederholung
+    let n:number = Math.floor(Math.random() * (Deck.length)); //Zufallsgenerator und prüfung auf Wiederholung
     Hand.push(Deck[n]); // Karte -> Hand
     Deck.splice(n,1)  
 }
 
 function stapelErzeugen():void{
-    let n:number = Math.floor(Math.random() * (Deck.length-1)); //Zufallsgenerator und prüfung auf Wiederholung
+    let n:number = Math.floor(Math.random() * (Deck.length)); //Zufallsgenerator und prüfung auf Wiederholung
     Deck.splice(n,1);  
     obersteKarte=Deck[n];  
     
