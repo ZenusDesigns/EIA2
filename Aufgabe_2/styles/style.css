@@ -12,6 +12,15 @@ body {
     background-color: whitesmoke;
 }
 
+
+button {
+    margin-top: 20px;
+    padding: 15px;
+    border-color: black;
+    font-size: 16px;
+    border-width: 4px;
+}
+
 .KartenRand{
     border: black solid 1px;
     width: 160px;

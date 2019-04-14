@@ -1,0 +1,60 @@
+/*            
+        Aufgabe: (Aufgabe 2  Mau Mau) 
+        Name: Daniel Mainberger
+        Matrikel: (260566)
+        Datum: (10.04.2019) 
+        In Zusammenarbeit mit Kübler Marvin, Sanchez Lisa, Culig Bastian, Carlotta Reinders, Mihai Alexandru, Wurz Kathrin.
+*/
+
+
+
+body {
+    background-color: whitesmoke;
+}
+
+
+button {
+    margin-top: 20px;
+    padding: 15px;
+    border-color: black;
+    font-size: 16px;
+    border-width: 4px;
+}
+
+.KartenRand{
+    border: black solid 1px;
+    width: 160px;
+    height: 224px;
+    margin-top: 1px;
+    margin-right: 5px;
+    font-weight: bold;
+    font-size: 3rem;
+    display: inline-block;
+    text-align: center;
+}
+
+.KartenRücken{
+    width: 160px;
+    height: 224px;
+    margin: 0px;
+}
+
+#Stapel {
+    position: relative;
+    left: 200px;
+    bottom: 231px;
+}
+
+
+.Rot{
+    color: crimson;
+}
+
+.Schwarz{
+    color: black;
+}
+
+.Symbol{
+    height: 50px;
+    margin: 25px 25px 0px 25px;
+}
