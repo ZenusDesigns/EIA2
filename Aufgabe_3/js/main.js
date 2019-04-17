@@ -323,8 +323,9 @@ function handBlattErzeugen() {
     }
 }
 function spieleKarte() {
+    console.log();
     let ausgewählteKartenID = event.target;
-    for (let i = 0; i < handBlattErzeugen.length; i++) {
+    for (let i = 0; i < Hand.length; i++) {
         if (String(ausgewählteKartenID.getAttribute("id")) == Hand[i].location) {
             if (Hand[i].Symbol == obersteKarte.Symbol || Hand[i].Wert == obersteKarte.Wert) {
                 Ablagestapel.push(obersteKarte);
@@ -361,5 +362,6 @@ function startBlatt() {
 function init() {
     startBlatt();
 }
+document.addEventListener("keydown", welcheTaste);
 document.addEventListener("DOMContentLoaded", init);
 //# sourceMappingURL=main.js.map

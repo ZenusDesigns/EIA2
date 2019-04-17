@@ -21,6 +21,10 @@ button {
     border-width: 4px;
 }
 
+.KartenRand *  {
+    pointer-events: none;
+}
+
 .KartenRand{
     border: black solid 1px;
     width: 160px;
