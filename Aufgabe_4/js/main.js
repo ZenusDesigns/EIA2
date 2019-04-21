@@ -25,7 +25,7 @@ function orderPrice() {
             console.log(orderSum);
         }
     }
-    document.getElementById("orderPrice").innerHTML = `Bestellzusammenfassung:   ${orderSum} €`;
+    document.getElementById("orderPrice").innerHTML = `Bestellzusammenfassung:  ${orderSum} €`;
 }
 function orderContent(_event) {
     let orderSelections = document.getElementsByTagName("input");

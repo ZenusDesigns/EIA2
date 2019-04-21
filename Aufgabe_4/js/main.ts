@@ -18,7 +18,7 @@ namespace EisdDealer {
         }
     }
 
-    function orderPrice() {
+    function orderPrice() { 
         let orderSelections: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
         let orderSum: number = 0;
         console.log(orderPrice.valueOf)
@@ -27,10 +27,10 @@ namespace EisdDealer {
             if (orderSelections[i].checked == true){orderSum = Number(orderSelections[i].value);
             console.log(orderSum);}
         }
-        document.getElementById("orderPrice").innerHTML = `Bestellzusammenfassung:   ${orderSum} €`;
+        document.getElementById("orderPrice").innerHTML = `Bestellzusammenfassung:  ${orderSum} €`;
     }
    
-    function orderContent(_event: Event): void {
+    function orderContent(_event: Event): void { /* Optionbereich des Dropdowns bisher nicht ansprechbar*/ 
         let orderSelections: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
         document.getElementById("iceSelections").innerHTML = "Sorten: ";
         document.getElementById("toppingSelections").innerHTML = "Extras: ";
