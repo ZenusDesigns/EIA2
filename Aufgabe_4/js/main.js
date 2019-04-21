@@ -10,20 +10,32 @@ function init(_event) {
     for (let i = 0; i < fieldsets.length; i++) {
         let fieldset = fieldsets[i];
         fieldset.addEventListener("change", orderContent);
+        fieldset.addEventListener("change", orderPrice);
         console.log(fieldset);
     }
 }
-function orderContent(_event) {
+function orderPrice() {
+    let orderSelections = document.getElementsByTagName("input");
     let orderSum = 0;
+    let orderPrice = 0;
+    console.log(orderPrice.valueOf);
+    document.getElementById("orderPrice").innerHTML = "Preis: ";
+    for (let i = 0; i < orderSelections.length; i++) {
+        if (orderSelections[i].checked == true) {
+            orderPrice = Number(orderSelections[i].value);
+            console.log(orderSum);
+        }
+    }
+    document.getElementById("orderPrice").innerHTML = `Bestellzusammenfassung:   ${orderSum} €`;
+}
+function orderContent(_event) {
     let orderSelections = document.getElementsByTagName("input");
     document.getElementById("iceSelections").innerHTML = "Sorten: ";
     document.getElementById("toppingSelections").innerHTML = "Extras: ";
     document.getElementById("containerSelections").innerHTML = "Behälter: ";
     document.getElementById("shippingSelections").innerHTML = "Versandart: ";
-    document.getElementById("orderPrice").innerHTML = "Preis: ";
     for (let i = 0; i < orderSelections.length; i++) {
         if (orderSelections[i].checked == true) {
-            console.log(orderSum);
             if (orderSelections[i].name == "toppingSelect1" || orderSelections[i].name == "toppingSelect2" || orderSelections[i].name == "toppingSelect3") {
                 let target = document.createElement("li");
                 target.innerHTML = `${orderSelections[i].alt}, `;
@@ -41,12 +53,10 @@ function orderContent(_event) {
             }
         }
         if (orderSelections[i].name == "Schokolade" || orderSelections[i].name == "Vanille" || orderSelections[i].name == "Erdbeere" || orderSelections[i].name == "Zitrone" || orderSelections[i].name == "Joghurt" || orderSelections[i].name == "Haselnuss") {
-            console.log(orderSum);
             let target = document.createElement("li");
             target.innerHTML = `${orderSelections[i].value}, `;
             document.getElementById("iceSelections").appendChild(target);
         }
-        document.getElementById("orderPrice").innerHTML = `Bestellzusammenfassung:   ${orderSum} €`;
     }
 }
 function orderComplete() {
