@@ -21,11 +21,10 @@ namespace EisdDealer {
     function orderPrice() {
         let orderSelections: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
         let orderSum: number = 0;
-        let orderPrice: number = 0;
         console.log(orderPrice.valueOf)
         document.getElementById("orderPrice").innerHTML = "Preis: ";
         for (let i: number = 0; i < orderSelections.length; i++) {
-            if (orderSelections[i].checked == true){orderPrice = Number(orderSelections[i].value);
+            if (orderSelections[i].checked == true){orderSum = Number(orderSelections[i].value);
             console.log(orderSum);}
         }
         document.getElementById("orderPrice").innerHTML = `Bestellzusammenfassung:   ${orderSum} €`;

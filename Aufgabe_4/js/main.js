@@ -17,12 +17,11 @@ function init(_event) {
 function orderPrice() {
     let orderSelections = document.getElementsByTagName("input");
     let orderSum = 0;
-    let orderPrice = 0;
     console.log(orderPrice.valueOf);
     document.getElementById("orderPrice").innerHTML = "Preis: ";
     for (let i = 0; i < orderSelections.length; i++) {
         if (orderSelections[i].checked == true) {
-            orderPrice = Number(orderSelections[i].value);
+            orderSum = Number(orderSelections[i].value);
             console.log(orderSum);
         }
     }
