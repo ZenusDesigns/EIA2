@@ -3,7 +3,6 @@ namespace EisdDealer {
     window.addEventListener("load",init);
     document.addEventListener("load", init);
     document.getElementById("orderDone").addEventListener("click", orderComplete);
-    
     }
 
     function init(_event: Event): void {
@@ -18,7 +17,6 @@ namespace EisdDealer {
             console.log(fieldset);
         }
     }
-
 
     function orderPrice() {
         let orderSelections: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
@@ -41,24 +39,31 @@ namespace EisdDealer {
         document.getElementById("shippingSelections").innerHTML = "Versandart: ";
         for (let i: number = 0; i < orderSelections.length; i++) {
             if (orderSelections[i].checked == true) {
-                if (orderSelections[i].name == "toppingSelect1" || orderSelections[i].name == "toppingSelect2" || orderSelections[i].name == "toppingSelect3") {
-                    let target = document.createElement("li");
+                if (orderSelections[i].name == "toppingSelect1" 
+                || orderSelections[i].name == "toppingSelect2" 
+                || orderSelections[i].name == "toppingSelect3") {
+                    let target = document.createElement("ul");
                     target.innerHTML = `${orderSelections[i].alt}, `;
                     document.getElementById("toppingSelections").appendChild(target);
                 } else if (orderSelections[i].name == "container") {
-                    let target =document.createElement("li");
+                    let target =document.createElement("ul");
                     target.innerHTML=`${orderSelections[i].alt}`;
                             document.getElementById("containerSelections").appendChild(target);
                 } else if (orderSelections[i].name == "shipping") {
-                    let target =document.createElement("li");
+                    let target =document.createElement("ul");
                     target.innerHTML=`${orderSelections[i].alt}`;
                             document.getElementById("shippingSelections").appendChild(target);
                 }
             }
-            if (orderSelections[i].name == "Schokolade" || orderSelections[i].name == "Vanille" || orderSelections[i].name == "Erdbeere" || orderSelections[i].name == "Zitrone" || orderSelections[i].name == "Joghurt" || orderSelections[i].name == "Haselnuss") {
+            if (orderSelections[i].name == "Schokolade" 
+            || orderSelections[i].name == "Vanille" 
+            || orderSelections[i].name == "Erdbeere" 
+            || orderSelections[i].name == "Zitrone" 
+            || orderSelections[i].name == "Joghurt" 
+            || orderSelections[i].name == "Haselnuss") {
                 let target = document.createElement("li");
                 target.innerHTML = `${orderSelections[i].value}, `;
-                document.getElementById("iceSelections").appendChild(target);
+                document.getElementById("iceSelect").appendChild(target);
             }
         }
     
@@ -78,7 +83,11 @@ namespace EisdDealer {
         if (delivery1.checked == true || delivery2.checked == true) {
             deliveryStatus = 1;
         }
-        if (location.value == "" || street.value == "" || forename.value == "" || surename.value == "" || deliveryStatus == 0) {
+        if (location.value == "" 
+        || street.value == "" 
+        || forename.value == "" 
+        || surename.value == "" 
+        || deliveryStatus == 0) {
             alert("Füllen Sie bitte alle Felder aus !");
         }
     }

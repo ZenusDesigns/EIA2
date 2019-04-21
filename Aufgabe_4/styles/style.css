@@ -133,3 +133,8 @@ fieldset {
 #orderSummary span {
     display: block;
 }
+
+ul {
+    color: white;
+    text-decoration: underline;
+}
