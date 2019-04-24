@@ -1,7 +1,6 @@
 var EisdDealer;
 (function (EisdDealer) {
     window.addEventListener("load", init);
-    document.addEventListener("load", init);
     document.getElementById("orderDone").addEventListener("click", orderComplete);
 })(EisdDealer || (EisdDealer = {}));
 function init(_event) {
@@ -14,14 +13,19 @@ function init(_event) {
         console.log(fieldset);
     }
 }
-function orderPrice() {
-    let orderSelections = document.getElementsByTagName("input");
+function orderPrice(_event) {
     let orderSum = 0;
-    console.log(orderPrice.valueOf);
-    document.getElementById("orderPrice").innerHTML = "Preis: ";
+    let orderPrice = 0;
+    let orderSelections = document.getElementsByTagName("input");
     for (let i = 0; i < orderSelections.length; i++) {
-        if (orderSelections[i].checked == true) {
-            orderSum = Number(orderSelections[i].value);
+        if (orderSelections[i].checked == true || orderSelections[i].name == "Schokolade" && Number(orderSelections[i].value) > 0
+            || orderSelections[i].name == "Vanille" && Number(orderSelections[i].value) > 0
+            || orderSelections[i].name == "Erdbeere" && Number(orderSelections[i].value) > 0
+            || orderSelections[i].name == "Zitrone" && Number(orderSelections[i].value) > 0
+            || orderSelections[i].name == "Joghurt" && Number(orderSelections[i].value) > 0
+            || orderSelections[i].name == "Haselnuss" && Number(orderSelections[i].value) > 0) {
+            orderPrice = Number(orderSelections[i].value);
+            orderSum += orderPrice;
             console.log(orderSum);
         }
     }
@@ -53,15 +57,15 @@ function orderContent(_event) {
                 document.getElementById("shippingSelections").appendChild(target);
             }
         }
-        if (orderSelections[i].name == "Schokolade"
-            || orderSelections[i].name == "Vanille"
-            || orderSelections[i].name == "Erdbeere"
-            || orderSelections[i].name == "Zitrone"
-            || orderSelections[i].name == "Joghurt"
-            || orderSelections[i].name == "Haselnuss") {
+        if (orderSelections[i].name == "Schokolade" && Number(orderSelections[i].value) > 0
+            || orderSelections[i].name == "Vanille" && Number(orderSelections[i].value) > 0
+            || orderSelections[i].name == "Erdbeere" && Number(orderSelections[i].value) > 0
+            || orderSelections[i].name == "Zitrone" && Number(orderSelections[i].value) > 0
+            || orderSelections[i].name == "Joghurt" && Number(orderSelections[i].value) > 0
+            || orderSelections[i].name == "Haselnuss" && Number(orderSelections[i].value) > 0) {
             let target = document.createElement("li");
-            target.innerHTML = `${orderSelections[i].value}, `;
-            document.getElementById("iceSelect").appendChild(target);
+            target.innerHTML = `${orderSelections[i].value} Kugel (n) ${orderSelections[i].name}, `;
+            document.getElementById("iceSelections").appendChild(target);
         }
     }
 }

@@ -1,7 +1,6 @@
 namespace EisdDealer {
 
     window.addEventListener("load",init);
-    document.addEventListener("load", init);
     document.getElementById("orderDone").addEventListener("click", orderComplete);
     }
 
@@ -18,13 +17,19 @@ namespace EisdDealer {
         }
     }
 
-    function orderPrice() { 
-        let orderSelections: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
+    function orderPrice(_event: Event): void { 
         let orderSum: number = 0;
-        console.log(orderPrice.valueOf)
-        document.getElementById("orderPrice").innerHTML = "Preis: ";
+        let orderPrice: number = 0;
+        let orderSelections: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
         for (let i: number = 0; i < orderSelections.length; i++) {
-            if (orderSelections[i].checked == true){orderSum = Number(orderSelections[i].value);
+            if (orderSelections[i].checked == true || orderSelections[i].name == "Schokolade" && Number(orderSelections[i].value) > 0
+            || orderSelections[i].name == "Vanille" && Number(orderSelections[i].value) > 0
+            || orderSelections[i].name == "Erdbeere" && Number(orderSelections[i].value) > 0
+            || orderSelections[i].name == "Zitrone" && Number(orderSelections[i].value) > 0
+            || orderSelections[i].name == "Joghurt" && Number(orderSelections[i].value) > 0
+            || orderSelections[i].name == "Haselnuss" && Number(orderSelections[i].value) > 0 ){
+                orderPrice = Number(orderSelections[i].value);
+                orderSum += orderPrice;
             console.log(orderSum);}
         }
         document.getElementById("orderPrice").innerHTML = `Bestellzusammenfassung:  ${orderSum} €`;
@@ -54,18 +59,18 @@ namespace EisdDealer {
                             document.getElementById("shippingSelections").appendChild(target);
                 }
             }
-            if (orderSelections[i].name == "Schokolade" 
-            || orderSelections[i].name == "Vanille" 
-            || orderSelections[i].name == "Erdbeere" 
-            || orderSelections[i].name == "Zitrone" 
-            || orderSelections[i].name == "Joghurt" 
-            || orderSelections[i].name == "Haselnuss") {
+            if (orderSelections[i].name == "Schokolade" && Number(orderSelections[i].value) > 0
+            || orderSelections[i].name == "Vanille" && Number(orderSelections[i].value) > 0
+            || orderSelections[i].name == "Erdbeere" && Number(orderSelections[i].value) > 0
+            || orderSelections[i].name == "Zitrone" && Number(orderSelections[i].value) > 0
+            || orderSelections[i].name == "Joghurt" && Number(orderSelections[i].value) > 0
+            || orderSelections[i].name == "Haselnuss" && Number(orderSelections[i].value) > 0 ){
+
                 let target = document.createElement("li");
-                target.innerHTML = `${orderSelections[i].value}, `;
-                document.getElementById("iceSelect").appendChild(target);
+                target.innerHTML = `${orderSelections[i].value} Kugel (n) ${orderSelections[i].name}, `;
+                document.getElementById("iceSelections").appendChild(target);
             }
         }
-    
     }
     
     function orderComplete(): void {
