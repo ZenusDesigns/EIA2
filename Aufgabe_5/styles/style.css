@@ -1,0 +1,147 @@
+/*            
+        Aufgabe: (Aufgabe 4  Eisdealer) 
+        Name: Daniel Mainberger
+        Matrikel: (260566)
+        Datum: (18.04.2019) 
+
+
+    Safari kompatibl - 
+        color 1 - #FFDA20
+        color 2 - #3B3B3B
+*/
+
+body {
+    background-color: #3b3b3b;
+    color: #FFDA20 ;
+    font-family: 'Acme', sans-serif;
+}
+
+main {
+    margin-right: 200px; 
+    padding: 0px 10px;
+  }
+
+header img {
+    max-width: 80px;
+    margin-left: 40%;
+}
+
+.sidebar {
+    height: 100%; 
+    width: 200px; 
+    position: fixed; 
+    z-index: 1; 
+    top: 0; 
+    right: 0;
+    background-color: rgb(44, 44, 44); 
+    overflow-x: hidden; 
+    padding-top: 20px;
+}
+
+.sidebar a {
+    padding: 6px 8px 6px 16px;
+    text-decoration: none;
+    font-size: 16px;
+    color: #FFDA20;
+    display: block;
+  }
+
+.sidebar h3 {
+    font-weight: 200;
+    font-size: 20px;
+    text-align: center;
+    border: #FFDA20 1px solid;
+}
+
+h1 {
+    position: relative;
+    margin-right: 200px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+h2 {
+    text-decoration-line: underline;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+
+input[required]:after {
+    content:" * ";
+  }
+
+legend {
+    margin: 0 auto;
+}
+
+.formName input {
+    margin-right: 40px; 
+}
+
+.formName label, .formAdress label {
+margin-right: 5px;
+}
+
+.formAdress input, .formAdress label {
+    margin-top: 5px;
+    display: block;
+}
+
+.iceSelect input {
+    margin-left: 15px;
+}
+
+header {
+    border-bottom: #FFDA20 1px solid;
+}
+
+fieldset {
+    margin-top: 25px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
+    min-height: 120px;
+
+}
+
+.iceSelect, .containerSelect, .toppingSelect, .shippingSelect, .paymentSelect {
+    padding-top: 10px ;
+    margin: 0 auto;
+}
+
+.paymentSelect {
+    display: inline;
+    margin-right: 40px;
+}
+
+.formAdress {
+    margin-top: 20px;
+}
+
+.formPayment {
+    margin-top: 45px;
+}
+
+.buttonAside {
+    width: 200px;
+    padding: 15px 0;
+    border: #FFDA20 1px solid;
+    font-weight: 800;
+    color: white;
+    background: none;
+    position: fixed;
+    bottom: 0;
+}
+.buttonAside:hover {
+ cursor: -webkit-grab;
+}
+
+#orderSummary span {
+    display: block;
+}
+
+ul {
+    color: white;
+}
+
+li {
+    color: white;
+}
