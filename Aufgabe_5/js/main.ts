@@ -60,24 +60,14 @@ namespace iceDealer_Mark_II {
 
         fieldset.setAttribute("id", "newFieldset");
 
-        if (_property.type == "radio") {
+        if (_property.type == "radio" || "number" || "checkbox") {
             input.setAttribute("type", _property.type);
             input.setAttribute("price", _property.price);
-            input.setAttribute("alt", _property.name)
-            input.setAttribute("name", "radiobutton");
-        }
-        else if (_property.type == "number") {
-            input.setAttribute("type", _property.type);
-            input.setAttribute("price", _property.price);
+            input.setAttribute("alt", _property.name);
             input.setAttribute("name", _property.name);
             input.setAttribute("step", "1");
             input.setAttribute("min", "0");
-            input.setAttribute("value", "0")
-        }
-        else if (_property.type == "checkbox") {
-            input.setAttribute("type", _property.type);
-            input.setAttribute("price", _property.price);
-            input.setAttribute("name", _property.name);
+            input.setAttribute("value", "0");
         }
         fieldset.appendChild(input);
         fieldset.appendChild(label);
