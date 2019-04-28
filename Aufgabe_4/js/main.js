@@ -4,7 +4,6 @@ var EisdDealer;
     document.getElementById("orderDone").addEventListener("click", orderComplete);
 })(EisdDealer || (EisdDealer = {}));
 function init(_event) {
-    console.log(init);
     let fieldsets = document.getElementsByTagName("fieldset");
     for (let i = 0; i < fieldsets.length; i++) {
         let fieldset = fieldsets[i];
@@ -13,12 +12,14 @@ function init(_event) {
         console.log(fieldset);
     }
 }
+/* Check Stepper & Number - //*/
 function orderPrice(_event) {
     let orderSum = 0;
     let orderPrice = 0;
     let orderSelections = document.getElementsByTagName("input");
     for (let i = 0; i < orderSelections.length; i++) {
-        if (orderSelections[i].checked == true || orderSelections[i].name == "Schokolade" && Number(orderSelections[i].value) > 0
+        if (orderSelections[i].checked == true
+            || orderSelections[i].name == "Schokolade" && Number(orderSelections[i].value) > 0
             || orderSelections[i].name == "Vanille" && Number(orderSelections[i].value) > 0
             || orderSelections[i].name == "Erdbeere" && Number(orderSelections[i].value) > 0
             || orderSelections[i].name == "Zitrone" && Number(orderSelections[i].value) > 0

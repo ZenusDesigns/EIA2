@@ -5,7 +5,6 @@ namespace EisdDealer {
     }
 
     function init(_event: Event): void {
-        console.log(init);
 
         let fieldsets: HTMLCollectionOf<HTMLFieldSetElement> = document.getElementsByTagName("fieldset");
 
@@ -17,17 +16,17 @@ namespace EisdDealer {
         }
     }
 
+
+
+
+                /* Check Stepper & Number - //*/ 
     function orderPrice(_event: Event): void { 
         let orderSum: number = 0;
         let orderPrice: number = 0;
         let orderSelections: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
         for (let i: number = 0; i < orderSelections.length; i++) {
-            if (orderSelections[i].checked == true || orderSelections[i].name == "Schokolade" && Number(orderSelections[i].value) > 0
-            || orderSelections[i].name == "Vanille" && Number(orderSelections[i].value) > 0
-            || orderSelections[i].name == "Erdbeere" && Number(orderSelections[i].value) > 0
-            || orderSelections[i].name == "Zitrone" && Number(orderSelections[i].value) > 0
-            || orderSelections[i].name == "Joghurt" && Number(orderSelections[i].value) > 0
-            || orderSelections[i].name == "Haselnuss" && Number(orderSelections[i].value) > 0 ){
+            if (orderSelections[i].checked == true
+                 || Number(orderSelections[i].value) > 0){
                 orderPrice = Number(orderSelections[i].value);
                 orderSum += orderPrice;
             console.log(orderSum);}
@@ -95,3 +94,5 @@ namespace EisdDealer {
             alert("Füllen Sie bitte alle Felder aus !");
         }
     }
+
+

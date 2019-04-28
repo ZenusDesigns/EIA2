@@ -6,6 +6,7 @@
     <link rel="stylesheet" type="text/css" href="styles/style.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
+    <script src="js/main.js"> </script>
 </head>
 <body>
     <!--      
@@ -93,7 +94,7 @@
                     </div>
                     <div class="formAdress">
                         <label for="location">Ort</label>
-                        <input type="text" id="location" name="location" placeholder="Ort" required="1">
+                        <input type="text" id="location" name="location" placeholder="Ort" required>
                         <label for="street">Straße</label>
                         <input type="text" id="street" name="street" placeholder="Straße" required="1">
                         <label for="numberHouse">Hausnummer</label>
@@ -104,11 +105,11 @@
                 <h2> Zahlungsart </h2>
                 <div class="formPayment">
                     <div class="paymentSelect">
-                        <input type="radio" name="payment" id="cashPayment" value="0" required>
+                        <input type="radio" name="payment" id="cashPayment" value="0" >
                         <label for="cashPayment">Bar</label>
                     </div>
                     <div class="paymentSelect">
-                        <input type="radio" name="payment" id="cardPayment" value="0" required>
+                        <input type="radio" name="payment" id="cardPayment" value="0" >
                         <label for="cardPayment">Karte</label>
                     </div>
                     <div class="paymentSelect">
@@ -132,7 +133,6 @@
 
         </div>
     </main>
-</body>
-<script src="js/main.js" defer></script> <!--Javascript Verlinkung mit Ladeverschiebung-->
+</body> <!--Javascript Verlinkung mit Ladeverschiebung-->
 
 </html>

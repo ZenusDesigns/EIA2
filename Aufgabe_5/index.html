@@ -2,25 +2,27 @@
 <html lang="en">
 <head>
     <meta charset="utf-8" />
-    <title>Eis-Dealer</title>
+    <title>Eis-Dealer Mark II</title>
     <link rel="stylesheet" type="text/css" href="styles/style.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
+    <script src="js/database.js"></script>
+    <script src="js/main.js" defer></script>
 </head>
 <body>
     <!--      
-        Aufgabe: (Aufgabe 4  Eisde<ler) 
+        Aufgabe: (Aufgabe 5  Eisdealer-Reloaded) 
         Name: Daniel Mainberger
         Matrikel: (260566)
-        Datum: (18.04.2019) 
+        Datum: (27.04.2019) 
 -->
-    <header>
+    <header id="header">
         <h1> Eis-Dealer.com</h1>
         <img src="img/1.png">
     </header>
-    <main> <!-- Head Bereich-->
+    <main id="main"> <!-- Head Bereich-->
         <!--Auswahl Dokumentbereich-->
-        <fieldset id="iceSelect">
+       <!-- <fieldset id="iceSelect">
 
             <legend>Wähle Dein Eis</legend>
             <h2> Eissorten </h2>
@@ -65,7 +67,7 @@
                 <input type="radio" name="container" id="cup" alt="Becher" value="0">
                 <label for="cup">Becher</label>
             </div>
-        </fieldset>
+        </fieldset> -->
         <fieldset id="shippingSelect">
             <legend>Wähle Deine Versandart</legend>
             <h2> Versandart </h2>
@@ -86,18 +88,16 @@
                 <h2> Adresse </h2>
                 <div class="formData">
                     <div class="formName">
-                        <label for="forename">Vorname</label>
-                        <input type="text" id="forename" name="forename">
-                        <label for="surname">Nachname</label>
-                        <input type="text" id="surname" name="surname">
+                        <input type="text" id="forename" placeholder="Vorname" name="Vorname">
+                        <input type="text" id="surname" placeholder="Nachname" name="Nachname">
                     </div>
                     <div class="formAdress">
                         <label for="location">Ort</label>
-                        <input type="text" id="location" name="location" placeholder="Ort" required="1">
+                        <input type="text" id="location" name="Ort" placeholder="Ort" required="1">
                         <label for="street">Straße</label>
-                        <input type="text" id="street" name="street" placeholder="Straße" required="1">
+                        <input type="text" id="street" name="Straße" placeholder="Straße" required="1">
                         <label for="numberHouse">Hausnummer</label>
-                        <input type="number" id="numberHouse" name="count2" step="1" min="0" max="100" value="0"
+                        <input type="number" id="numberHouse" name="Hausnummer" step="1" min="0" max="100" value="0"
                             required="required">
                     </div>
                 </div>
@@ -133,6 +133,4 @@
         </div>
     </main>
 </body>
-<script src="js/main.js" defer></script> <!--Javascript Verlinkung mit Ladeverschiebung-->
-
 </html>

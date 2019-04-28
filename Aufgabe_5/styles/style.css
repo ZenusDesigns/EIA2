@@ -1,8 +1,8 @@
 /*            
-        Aufgabe: (Aufgabe 4  Eisdealer) 
+        Aufgabe: (Aufgabe 5  Eisdealer) 
         Name: Daniel Mainberger
         Matrikel: (260566)
-        Datum: (18.04.2019) 
+        Datum: (27.04.2019) 
 
 
     Safari kompatibl - 
@@ -17,7 +17,6 @@ body {
 }
 
 main {
-    margin-right: 200px; 
     padding: 0px 10px;
   }
 
@@ -74,6 +73,18 @@ legend {
     margin: 0 auto;
 }
 
+input {
+    margin-top: 10px; 
+}
+
+label {
+    margin-left: 5px;
+}
+label::after {
+    content: "";
+    display: block;
+}
+
 .formName input {
     margin-right: 40px; 
 }
@@ -99,6 +110,7 @@ fieldset {
     margin-top: 25px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.8);
     min-height: 120px;
+    margin-right: 200px;
 
 }
 
@@ -108,7 +120,6 @@ fieldset {
 }
 
 .paymentSelect {
-    display: inline;
     margin-right: 40px;
 }
 
