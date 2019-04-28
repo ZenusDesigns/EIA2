@@ -6,12 +6,37 @@ namespace iceDealer_Mark_II {
     let legend: HTMLLegendElement = document.createElement("legend");
 
     function init(_event: Event): void {
-        createFieldsetElement(iceCreamFlavour);
-        insertBeforeExisting();
         fieldset.addEventListener("change", orderContent);
-        execute();
+        fieldset.addEventListener("change", orderPrice);
+        createFieldsetElement(iceCreamFlavour); 
+        insertBeforeExisting();
     }
-    /* Create new Fieldset-HTML Element*/
+
+    function orderPrice(_event: Event): void { 
+        let orderSum: number = 0;
+        let orderPrice: number = 0;
+        let orderSelections: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
+        for (let i: number = 0; i < orderSelections.length; i++) {
+            if (orderSelections[i].checked == true
+                 || Number(orderSelections[i].value) > 0){
+                orderPrice = Number(orderSelections[i].value);
+                orderSum += orderPrice;
+            }
+        }
+        document.getElementById("orderPrice").innerHTML = `Bestellzusammenfassung:  ${orderSum} €`;
+    }
+
+       /* Insert new HTML-Fieldset before existing HTML*/
+       function insertBeforeExisting() { /**/
+        var existingHTML = document.getElementById("header");
+        var newHTML = document.getElementById("newFieldset");
+        existingHTML.appendChild(newHTML);
+
+        var main = document.getElementById("main");
+        main.insertBefore(existingHTML, main.childNodes[0]);
+    }
+    
+    /*Create new Fieldset-HTML Element*/
     function createFieldsetElement(_cat: key_iceDealer_Mark_II): void {
 
         document.body.appendChild(fieldset);
@@ -23,15 +48,6 @@ namespace iceDealer_Mark_II {
             for (let i: number = 0; i < value.length; i++)
                 fieldsetInsert(value[i]);
         }
-    }
-    /* Insert new HTML-Fieldset before existing HTML*/
-    function insertBeforeExisting() { /**/
-        var existingHTML = document.getElementById("header");
-        var newHTML = document.getElementById("newFieldset");
-        existingHTML.appendChild(newHTML);
-
-        var main = document.getElementById("main");
-        main.insertBefore(existingHTML, main.childNodes[0]);
     }
 
     /* Fill new HTML-Fieldset with Information*/
@@ -67,58 +83,43 @@ namespace iceDealer_Mark_II {
     }
 
     /*Execute OrderComplete-Check on button-click*/
-    function execute(): void {
 
-        document.getElementById("orderDone").addEventListener("click", orderComplete);
-        let fieldsets: HTMLCollectionOf<HTMLFieldSetElement> = document.getElementsByTagName("fieldset");
-
-        for (let i: number = 0; i < fieldsets.length; i++) {
-            let fieldset: HTMLFieldSetElement = fieldsets[i];
-            fieldset.addEventListener("change", orderContent);
-        }
-    }
-
-    /*Check Order on missing information*/
     function orderComplete(): void {
+        let deliveryStatus: number = 0;
 
-        let orderStatus: string[] = [];
-        let missing: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
-        let flavour: number = 0;
-        let container: number = 0;
-        let insert: HTMLElement = document.getElementById ("span")
-        for (let i: number = 0; i < missing.length; i++) {
-            if (missing[i].type == "text")
-                if (missing[i].value == "") {
-                    let feldName: string = missing[i].name;
-                    orderStatus.push(feldName);
-                }
-            if (missing[i].type == "number") {
-                if (Number(missing[i].value) > 0) {
-                    flavour = 1;
-                }
-            }
-            if (missing[i].type == "radio") {
-                if (missing[i].checked == true) {
-                    container = 1;
-                }
-            }
+        let delivery1: HTMLInputElement = <HTMLInputElement>document.getElementById("normalShipping");
+        let delivery2: HTMLInputElement = <HTMLInputElement>document.getElementById("expressShipping");
+        let location: HTMLInputElement = <HTMLInputElement>document.getElementById("location");
+        let street: HTMLInputElement = <HTMLInputElement>document.getElementById("street");
+        let forename: HTMLInputElement = <HTMLInputElement>document.getElementById("forename");
+        let surename: HTMLInputElement = <HTMLInputElement>document.getElementById("surename");
+
+
+        if (delivery1.checked == true || delivery2.checked == true) {
+            deliveryStatus = 1;
         }
-        if (flavour == 0 || container == 0 || orderStatus.length == 0) {
-            insert.innerHTML = ("Du musst noch die Felder ${orderStatus} ausfüllen");
-        }
-        else {
-            insert.innerHTML = ("Du musst noch die Felder ${orderStatus} ausfüllen");
+        if (location.value == "" 
+        || street.value == "" 
+        || forename.value == "" 
+        || surename.value == "" 
+        || deliveryStatus == 0) {
+            alert("Füllen Sie bitte alle Felder aus !");
         }
     }
+
 
 
 function orderContent(_event: Event): void { /* Optionbereich des Dropdowns bisher nicht ansprechbar*/ 
     let orderSelections: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
+    document.getElementById("orderDone").addEventListener("click", orderComplete);
+    let fieldsets: HTMLCollectionOf<HTMLFieldSetElement> = document.getElementsByTagName("fieldset");
     document.getElementById("iceSelections").innerHTML = "Sorten: ";
     document.getElementById("toppingSelections").innerHTML = "Extras: ";
     document.getElementById("containerSelections").innerHTML = "Behälter: ";
     document.getElementById("shippingSelections").innerHTML = "Versandart: ";
-    for (let i: number = 0; i < orderSelections.length; i++) {
+    for (let i: number = 0; i < orderSelections.length && i < fieldsets.length; i++) {
+        let fieldset: HTMLFieldSetElement = fieldsets[i];
+            fieldset.addEventListener("change", orderContent);
         if (orderSelections[i].checked == true) {
             if (orderSelections[i].name == "Schokolade" 
             || orderSelections[i].name == "Streusel" 
