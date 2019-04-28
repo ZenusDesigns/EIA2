@@ -48,26 +48,24 @@ var iceDealer_Mark_II;
         label.setAttribute("for", _property.name);
         label.innerHTML = _property.name;
         fieldset.setAttribute("id", "newFieldset");
-        switch (_property.type) {
-            case "radio":
-                input.setAttribute("type", _property.type);
-                input.setAttribute("price", _property.price);
-                input.setAttribute("alt", _property.name);
-                input.setAttribute("name", "radiobutton");
-                break;
-            case "number":
-                input.setAttribute("type", _property.type);
-                input.setAttribute("price", _property.price);
-                input.setAttribute("name", _property.name);
-                input.setAttribute("step", "1");
-                input.setAttribute("min", "0");
-                input.setAttribute("value", "0");
-                break;
-            case "checkbox":
-                input.setAttribute("type", _property.type);
-                input.setAttribute("price", _property.price);
-                input.setAttribute("name", _property.name);
-                break;
+        if (_property.type == "radio") {
+            input.setAttribute("type", _property.type);
+            input.setAttribute("price", _property.price);
+            input.setAttribute("alt", _property.name);
+            input.setAttribute("name", "radiobutton");
+        }
+        else if (_property.type == "number") {
+            input.setAttribute("type", _property.type);
+            input.setAttribute("price", _property.price);
+            input.setAttribute("name", _property.name);
+            input.setAttribute("step", "1");
+            input.setAttribute("min", "0");
+            input.setAttribute("value", "0");
+        }
+        else if (_property.type == "checkbox") {
+            input.setAttribute("type", _property.type);
+            input.setAttribute("price", _property.price);
+            input.setAttribute("name", _property.name);
         }
         fieldset.appendChild(input);
         fieldset.appendChild(label);
