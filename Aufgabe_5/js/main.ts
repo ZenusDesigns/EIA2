@@ -35,32 +35,32 @@ namespace iceDealer_Mark_II {
     }
 
     /* Fill new HTML-Fieldset with Information*/
-    function fieldsetInsert(_ice: iceCreamFlavour): void {
+    function fieldsetInsert(_property: iceCreamFlavour): void {
         let label: HTMLLabelElement = document.createElement("label");
         let input: HTMLInputElement = document.createElement("input");
 
-        label.setAttribute("for", _ice.name);
-        label.innerHTML = _ice.name;
+        label.setAttribute("for", _property.name);
+        label.innerHTML = _property.name;
 
         fieldset.setAttribute("id", "newFieldset");
 
-        switch (_ice.type) {
+        switch (_property.type) {
             case "radio":
-                input.setAttribute("type", _ice.type);
-                input.setAttribute("price", _ice.price);
-                input.setAttribute("bezeichnung", _ice.name)
+                input.setAttribute("type", _property.type);
+                input.setAttribute("price", _property.price);
+                input.setAttribute("alt", _property.name)
                 input.setAttribute("name", "radiobutton");break;
             case "number":
-                input.setAttribute("type", _ice.type);
-                input.setAttribute("price", _ice.price);
-                input.setAttribute("name", _ice.name);
+                input.setAttribute("type", _property.type);
+                input.setAttribute("price", _property.price);
+                input.setAttribute("name", _property.name);
                 input.setAttribute("step", "1");
                 input.setAttribute("min", "0");
                 input.setAttribute("value", "0");break;
             case "checkbox":
-                input.setAttribute("type", _ice.type);
-                input.setAttribute("price", _ice.price);
-                input.setAttribute("name", _ice.name);break;
+                input.setAttribute("type", _property.type);
+                input.setAttribute("price", _property.price);
+                input.setAttribute("name", _property.name);break;
         }
         fieldset.appendChild(input);
         fieldset.appendChild(label);
@@ -116,52 +116,38 @@ namespace iceDealer_Mark_II {
         }
     }
 
-    /**/
-    function orderContent(_event: Event): void {
 
-        let start: number = 0;
-        let orderSelections: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
-        let content: HTMLElement = document.createElement("li");
-
-        document.getElementById("iceSelections").innerHTML = "Sorten: ";
-        document.getElementById("toppingSelections").innerHTML = "Extras: ";
-        document.getElementById("containerSelections").innerHTML = "Behälter: ";
-        document.getElementById("shippingSelections").innerHTML = "Versandart: ";
-
-        for (let i: number = 0; i < orderSelections.length; i++) {
-            if (orderSelections[i].checked == true && orderSelections[i].getAttribute("price") == "0.8") {
-                let price: number = Number(orderSelections[i].getAttribute("price"));
-                start += price;
-                document.getElementById("orderPrice").innerHTML = start.toString() + " " + "€";
-                content.innerHTML = `${orderSelections[i].name}`;
-                document.getElementById("toppingSelections").appendChild(content);
-            }
-            if (orderSelections[i].checked == true && orderSelections[i].getAttribute("name") == "radiobutton") {
-                document.getElementById("orderPrice").innerHTML = start.toString() + " " + "€";
-                let form: HTMLElement = document.createElement("li");
-                form.innerHTML = `${orderSelections[i].getAttribute("bezeichnung")}`;
-                document.getElementById("containerSelections").appendChild(form);
-            }
-            if (orderSelections[i].type == "number" && Number(orderSelections[i].value) > 0) {
-                let price: number = Number(orderSelections[i].value);
-                start += price;
-                document.getElementById("orderPrice").innerHTML = start.toString() + " " + "€";
-                let sorten: HTMLElement = document.createElement("li");
-                sorten.innerHTML = `${orderSelections[i].value} x ${orderSelections[i].name}`;
-                document.getElementById("iceSelections").appendChild(sorten);
-            }
-            if (orderSelections[i].checked == true && orderSelections[i].name == "shipping") {
-                let price: number = Number(orderSelections[i].getAttribute("EDprice"));
-                start += price;
-                document.getElementById("orderPrice").innerHTML = start.toString() + " " + "€";
-                let shipping: HTMLElement = document.createElement("li");
-                shipping.innerHTML = `${orderSelections[i].getAttribute("alt")}`;
-                document.getElementById("shippingSelections").appendChild(shipping);
+function orderContent(_event: Event): void { /* Optionbereich des Dropdowns bisher nicht ansprechbar*/ 
+    let orderSelections: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
+    document.getElementById("iceSelections").innerHTML = "Sorten: ";
+    document.getElementById("toppingSelections").innerHTML = "Extras: ";
+    document.getElementById("containerSelections").innerHTML = "Behälter: ";
+    document.getElementById("shippingSelections").innerHTML = "Versandart: ";
+    for (let i: number = 0; i < orderSelections.length; i++) {
+        if (orderSelections[i].checked == true) {
+            if (orderSelections[i].name == "Schokolade" 
+            || orderSelections[i].name == "Streusel" 
+            || orderSelections[i].name == "Sahne") {
+                let target = document.createElement("ul");
+                target.innerHTML = `${orderSelections[i].name}, `;
+                document.getElementById("toppingSelections").appendChild(target);
+            } else if (orderSelections[i].name == "Waffel" || orderSelections[i].name == "Becher") {
+                let target =document.createElement("ul");
+                target.innerHTML=`${orderSelections[i].alt}`;
+                        document.getElementById("containerSelections").appendChild(target);
+            } else if (orderSelections[i].name == "shipping") {
+                let target =document.createElement("ul");
+                target.innerHTML=`${orderSelections[i].alt}`;
+                        document.getElementById("shippingSelections").appendChild(target);
             }
         }
-    }
+        if (Number(orderSelections[i].value) ){
 
+            let target = document.createElement("li");
+            target.innerHTML = `${orderSelections[i].value} Kugel (n) ${orderSelections[i].name}, `;
+            document.getElementById("iceSelections").appendChild(target);
+        }
+    }
+}
     
 }
-
-
