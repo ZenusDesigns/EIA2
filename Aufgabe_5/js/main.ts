@@ -85,6 +85,7 @@ namespace iceDealer_Mark_II {
         let missing: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
         let flavour: number = 0;
         let container: number = 0;
+        let insert: HTMLElement = document.getElementById ("span")
         for (let i: number = 0; i < missing.length; i++) {
             if (missing[i].type == "text")
                 if (missing[i].value == "") {
@@ -102,17 +103,11 @@ namespace iceDealer_Mark_II {
                 }
             }
         }
-        if (flavour == 0) {
-            alert("Du musst noch eine Eissorte auswählen")
-        }
-        if (container == 0) {
-            alert("Du musst noch einen Behälter auswählen")
-        }
-        if (orderStatus.length == 0) {
-            alert("Deine Bestellung wurde empfangen!");
+        if (flavour == 0 || container == 0 || orderStatus.length == 0) {
+            insert.innerHTML = ("Du musst noch die Felder ${orderStatus} ausfüllen");
         }
         else {
-            alert(`Du musst noch die Felder ${orderStatus} ausfüllen`);
+            insert.innerHTML = ("Du musst noch die Felder ${orderStatus} ausfüllen");
         }
     }
 
@@ -133,7 +128,7 @@ function orderContent(_event: Event): void { /* Optionbereich des Dropdowns bish
                 document.getElementById("toppingSelections").appendChild(target);
             } else if (orderSelections[i].name == "Waffel" || orderSelections[i].name == "Becher") {
                 let target =document.createElement("ul");
-                target.innerHTML=`${orderSelections[i].alt}`;
+                target.innerHTML=`${orderSelections[i].name}`;
                         document.getElementById("containerSelections").appendChild(target);
             } else if (orderSelections[i].name == "shipping") {
                 let target =document.createElement("ul");

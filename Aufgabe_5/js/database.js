@@ -1,7 +1,7 @@
 var iceDealer_Mark_II;
 (function (iceDealer_Mark_II) {
     iceDealer_Mark_II.iceCreamFlavour = {
-        "eisSorten": [
+        "ice": [
             { name: "Schokolade", type: "number", price: "1" },
             { name: "Vanille", type: "number", price: "1" },
             { name: "Zitrone", type: "number", price: "1" },

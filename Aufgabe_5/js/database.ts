@@ -11,7 +11,7 @@ namespace iceDealer_Mark_II {
     }
 
     export let iceCreamFlavour: key_iceDealer_Mark_II = {
-        "eisSorten": [
+        "ice": [
             { name: "Schokolade", type: "number" , price: "1"},
             { name: "Vanille", type: "number" , price: "1"},
             { name: "Zitrone", type: "number" , price: "1"},
