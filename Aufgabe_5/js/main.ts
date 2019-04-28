@@ -5,6 +5,8 @@ namespace iceDealer_Mark_II {
     let fieldset: HTMLFieldSetElement = document.createElement("fieldset");
     let legend: HTMLLegendElement = document.createElement("legend");
 
+
+    
     function init(_event: Event): void {
         fieldset.addEventListener("change", orderContent);
         fieldset.addEventListener("change", orderPrice);
