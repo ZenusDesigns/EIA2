@@ -1,6 +1,5 @@
 import * as Http from "http"; // Node-Modul wird aufgerufen/genutzt
 
-namespace L05_Server { 
 	console.log("Starting server"); //Console gibt "starting Server" aus 
 	let port: number = Number(process.env.PORT); // Variable vom Typ Number wird generiert. Umgebungsvariabel gibt an welcher Port angesteurt wird.
 	if (!port) // bedingung: Falls Port anders als erwartet ist ->
@@ -25,4 +24,4 @@ namespace L05_Server {
 
 		_response.end(); // Response wird beendet.
 	}
-}
+ 

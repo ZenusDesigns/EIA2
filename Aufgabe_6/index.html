@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Eis-Dealer Mark II</title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Acme" rel="stylesheet">
+    <script src="js/database.js"></script>
+    <script src="js/main.js" defer></script>
+</head>
+<body>
+    <!--      
+        Aufgabe: (Aufgabe 5  Eisdealer-Reloaded) 
+        Name: Daniel Mainberger
+        Matrikel: (260566)
+        Datum: (27.04.2019) 
+-->
+    <header id="header">
+        <h1> Eis-Dealer.com</h1>
+        <img src="img/1.png">
+    </header>
+    <main id="main"> <!-- Head Bereich-->
+        <!--Auswahl Dokumentbereich-->
+
+        <fieldset id="shippingSelect">
+            <legend>Wähle Deine Versandart</legend>
+            <h2> Versandart </h2>
+            <div class="shippingSelect">
+                <input type="radio" name="shipping" id="normalShipping" alt="Normal-Versand" value="0"
+                    EDprice="2">
+                <label for="normalShipping">Normal</label>
+            </div>
+            <div class="shippingSelect">
+                <input type="radio" name="shipping" id="expressShipping" alt="Express-Versand" value="0"
+                    EDprice="5">
+                <label for="expressShipping">Express</label>
+            </div>
+        </fieldset>
+        <form> <!--Formblatt-->
+            <fieldset id="formSelect">
+                <legend>Gib Deine Daten an</legend>
+                <h2> Adresse </h2>
+                <div class="formData">
+                    <div class="formName">
+                        <input type="text" id="forename" placeholder="Vorname" name="Vorname">
+                        <input type="text" id="surname" placeholder="Nachname" name="Nachname">
+                    </div>
+                    <div class="formAdress">
+                        <label for="location">Ort</label>
+                        <input type="text" id="location" name="Ort" placeholder="Ort" required="1">
+                        <label for="street">Straße</label>
+                        <input type="text" id="street" name="Straße" placeholder="Straße" required="1">
+                        <label for="numberHouse">Hausnummer</label>
+                        <input type="number" id="numberHouse" name="Hausnummer" step="1" min="0" max="100" value="0"
+                            required="required">
+                    </div>
+                </div>
+                <h2> Zahlungsart </h2>
+                <div class="formPayment">
+                    <div class="paymentSelect">
+                        <input type="radio" name="payment" id="cashPayment" value="0" required>
+                        <label for="cashPayment">Bar</label>
+                    </div>
+                    <div class="paymentSelect">
+                        <input type="radio" name="payment" id="cardPayment" value="0" required>
+                        <label for="cardPayment">Karte</label>
+                    </div>
+                    <div class="paymentSelect">
+                        <input type="radio" name="payment" id="paypalPayment" value="0" required>
+                        <label for="paypalPayment">PayPal</label>
+                    </div>
+                </div>
+            </fieldset>
+        </form>
+        <div class="sidebar"> <!--Bestellzusammenfassung-->
+            <h3>Zusammenfassung Deiner Bestellung :</h3>
+            <div id="orderSummary">
+                <span id="iceSelections"> </span>
+                <span id="toppingSelections"> </span>
+                <span id="containerSelections"> </span>
+                <span id="shippingSelections"> </span>
+                <span id="orderPrice"> </span>
+                <br>
+                <span id="Info"> </span>
+
+            </div>
+            <button class="buttonAside" id="orderDone"> Bestellung überprüfen </button> <!--Bestellprüfung-->
+
+        </div>
+    </main>
+</body>
+</html>
