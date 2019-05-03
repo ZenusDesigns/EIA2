@@ -32,6 +32,7 @@ var iceDealer_Mark_II;
     }
     /*Create new Fieldset-HTML Element*/
     function createFieldsetElement(_cat) {
+        document.getElementById("formID").appendChild(fieldset);
         document.body.appendChild(fieldset);
         legend.innerHTML = "Wähle Dein Eis";
         fieldset.appendChild(legend);
