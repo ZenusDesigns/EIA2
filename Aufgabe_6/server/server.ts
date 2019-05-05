@@ -24,4 +24,4 @@ import * as Http from "http"; // Node-Modul wird aufgerufen/genutzt
 
 		_response.end(); // Response wird beendet.
 	}
- 
+
