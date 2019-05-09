@@ -106,7 +106,7 @@ namespace iceDealer_Mark_II {
             let location: HTMLInputElement = <HTMLInputElement>document.getElementById("location");
             let street: HTMLInputElement = <HTMLInputElement>document.getElementById("street");
             let forename: HTMLInputElement = <HTMLInputElement>document.getElementById("forename");
-            let surename: HTMLInputElement = <HTMLInputElement>document.getElementById("surname");
+            let surname: HTMLInputElement = <HTMLInputElement>document.getElementById("surname");
     
     
             if (delivery1.checked == true || delivery2.checked == true) {
@@ -115,7 +115,7 @@ namespace iceDealer_Mark_II {
             if (location.value == ""
                 || street.value == ""
                 || forename.value == ""
-                || surename.value == ""
+                || surname.value == ""
                 || deliveryStatus == 0) {
                 alert("Füllen Sie bitte alle Felder aus !");
             }

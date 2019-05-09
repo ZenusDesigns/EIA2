@@ -99,14 +99,14 @@ var iceDealer_Mark_II;
             let location = document.getElementById("location");
             let street = document.getElementById("street");
             let forename = document.getElementById("forename");
-            let surename = document.getElementById("surname");
+            let surname = document.getElementById("surname");
             if (delivery1.checked == true || delivery2.checked == true) {
                 deliveryStatus = 1;
             }
             if (location.value == ""
                 || street.value == ""
                 || forename.value == ""
-                || surename.value == ""
+                || surname.value == ""
                 || deliveryStatus == 0) {
                 alert("Füllen Sie bitte alle Felder aus !");
             }
