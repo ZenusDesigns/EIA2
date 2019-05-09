@@ -99,7 +99,7 @@ var iceDealer_Mark_II;
             let location = document.getElementById("location");
             let street = document.getElementById("street");
             let forename = document.getElementById("forename");
-            let surename = document.getElementById("surename");
+            let surename = document.getElementById("surname");
             if (delivery1.checked == true || delivery2.checked == true) {
                 deliveryStatus = 1;
             }
