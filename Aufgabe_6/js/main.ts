@@ -27,12 +27,10 @@ namespace iceDealer_Mark_II {
 
        /* Insert new HTML-Fieldset before existing HTML*/
        function insertBeforeExisting() { /**/
-        var existingHTML = document.getElementById("header");
+        var existingHTML = document.getElementById("IceKonfi");
         var newHTML = document.getElementById("newFieldset");
         existingHTML.appendChild(newHTML);
 
-        var main = document.getElementById("main");
-        main.insertBefore(existingHTML, main.childNodes[0]);
     }
 
     function orderContent(_event: Event): void {

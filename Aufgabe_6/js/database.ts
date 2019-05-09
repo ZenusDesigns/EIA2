@@ -25,7 +25,7 @@ namespace iceDealer_Mark_II {
             { name: "Sahne", type: "checkbox",alt: "Sahne", price: "0.8"}
         ],
         "container": [
-            { name: "Becher", type: "radio",alt: "Becher", price: "0"},
-            { name: "Waffel", type: "radio",alt: "Waffel", price: "0"}
+            { name: "Container", type: "radio",alt: "Becher", price: "0"},
+            { name: "Container", type: "radio",alt: "Waffel", price: "0"}
         ],
 }}
