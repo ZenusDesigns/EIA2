@@ -106,7 +106,7 @@ namespace iceDealer_Mark_II {
             let location: HTMLInputElement = <HTMLInputElement>document.getElementById("location");
             let street: HTMLInputElement = <HTMLInputElement>document.getElementById("street");
             let forename: HTMLInputElement = <HTMLInputElement>document.getElementById("forename");
-            let surename: HTMLInputElement = <HTMLInputElement>document.getElementById("surename");
+            let surename: HTMLInputElement = <HTMLInputElement>document.getElementById("surname");
     
     
             if (delivery1.checked == true || delivery2.checked == true) {
