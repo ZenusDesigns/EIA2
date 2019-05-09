@@ -78,7 +78,7 @@ var iceDealer_Mark_II;
             input.setAttribute("type", _property.type);
             input.setAttribute("price", _property.price);
             input.setAttribute("alt", _property.name);
-            input.setAttribute("name", _property.name);
+            input.setAttribute("name", _property.alt);
             input.setAttribute("step", "1");
             input.setAttribute("min", "0");
             input.setAttribute("value", "0");
