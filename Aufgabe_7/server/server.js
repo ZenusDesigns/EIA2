@@ -14,10 +14,10 @@ function handleListen() {
     console.log("Listening"); // Erstellung der Funktion handleListen, sowie eine Kontrollausgabe in die Konsole
 }
 function handleRequest(_request, _response) {
-    console.log("At your service Sir"); // Console gibt  "I hear voices!" aus
+    console.log("At your service Sir"); // 
     _response.setHeader("content-type", "text/html; charset=utf-8"); // Header wird erstellt mit angegebenden Spezifikationen . 
     _response.setHeader("Access-Control-Allow-Origin", "*"); // Server_request kann von verschiedenen Orten aufgerufen werden. 
-    _response.write(_request.url); // request.url wird in response eingebunden.
+    //_response.write(_request.url); // request.url wird in response eingebunden.//
     _response.write("<h3> Zusammenfassung :</h3>");
     let url = Url.parse(_request.url, true);
     for (let key in url.query)

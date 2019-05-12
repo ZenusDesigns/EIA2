@@ -10,6 +10,11 @@
         color 2 - #3B3B3B
 */
 
+
+#response #text {
+    display: none;
+}
+
 body {
     background-color: #3b3b3b;
     color: #FFDA20 ;

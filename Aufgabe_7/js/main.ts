@@ -11,7 +11,7 @@ namespace iceDealer_Mark_II {
         fieldset.addEventListener("change", orderContent);
         execute();
         document.getElementById("orderDone").addEventListener("click", generateURL);
-        console.log("init works.");
+        console.log("S.T.A.R.T");
     }
     /* Create new Fieldset-HTML Element*/
     function createFieldsetElement(_cat: key_iceDealer_Mark_II): void {
@@ -55,66 +55,23 @@ namespace iceDealer_Mark_II {
                 url += `${orderInfo[i].name}: ${orderInfo[i].value}&`;
             }
 
-
         }
-
-        sendRequestWithCustomData(url);
+        sendCustomDataRequest(url);
     }
 
-    function sendRequestWithCustomData(_url: string): void {
+    function sendCustomDataRequest(_url: string): void {
         let xhr: XMLHttpRequest = new XMLHttpRequest();
         xhr.open("GET", _url, true);
-        xhr.addEventListener("readystatechange", handleStateChange);
+        xhr.addEventListener("readystatechange", StateChange);
         xhr.send();
     }
 
-    function handleStateChange(_event: ProgressEvent): void {
+    function StateChange(_event: ProgressEvent): void {
         let xhr: XMLHttpRequest = <XMLHttpRequest>_event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
             document.getElementById("response").innerHTML = xhr.response;
         }
     }
-
-    /*function generateUrl(): void {
-        let orderInfo: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
-        let url: string = "https://eia2mainbergerdaniel.herokuapp.com/?";
-        for (let i: number = 0; i < orderInfo.length; i++) {
-
-            if (orderInfo[i].name == "Lieferauswahl" && orderInfo[i].checked == true) {
-                url += `${orderInfo[i].name}:${orderInfo[i].value}&`;
-            }
-
-            if (orderInfo[i].name == "Behaelter" && orderInfo[i].checked == true) {
-                url += `${orderInfo[i].name}:${orderInfo[i].value}&`;
-            }
-
-            if (orderInfo[i].type == "number" && Number(orderInfo[i].value) > 0) {
-                url += `${orderInfo[i].name}:${orderInfo[i].value}&`;
-            }
-
-            if (orderInfo[i].type == "checkbox" && orderInfo[i].checked == true) {
-                url += `${orderInfo[i].name}:${orderInfo[i].value}&`;
-            }
-
-        }
-
-        sendRequestWithCustomData(url);
-    }
-
-
-    function sendRequestWithCustomData(_url: string): void {
-        let xhr: XMLHttpRequest = new XMLHttpRequest();
-        xhr.open("GET", _url, true);
-        xhr.addEventListener("readystatechange", handleStateChange);
-        xhr.send();
-    }
-
-    function handleStateChange(_event: ProgressEvent): void {
-        let xhr: XMLHttpRequest = <XMLHttpRequest>_event.target;
-        if (xhr.readyState == XMLHttpRequest.DONE) {
-            document.getElementById("Info").innerHTML = xhr.response;
-        }
-    }*/
 
     function orderContent(_event: Event): void {
 
