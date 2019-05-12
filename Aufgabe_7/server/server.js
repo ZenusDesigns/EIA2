@@ -21,7 +21,7 @@ function handleRequest(_request, _response) {
     _response.write("<h3> Zusammenfassung :</h3>");
     let url = Url.parse(_request.url, true);
     for (let key in url.query)
-        _response.write("<p>" + key + url.query[key] + "</p> <br>");
+        _response.write("<p>" + key + url.query[key] + "</p>");
     _response.end(); // Response wird beendet.
 }
 //# sourceMappingURL=server.js.map

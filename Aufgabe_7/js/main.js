@@ -30,7 +30,7 @@ var iceDealer_Mark_II;
     }
     function generateURL() {
         let orderInfo = document.getElementsByTagName("input");
-        let url = "https://eia2-kathrin.herokuapp.com/?";
+        let url = "https://eia2mainbergerdaniel.herokuapp.com/?";
         for (let i = 0; i < orderInfo.length; i++) {
             if (orderInfo[i].name == "Lieferauswahl" && orderInfo[i].checked == true) {
                 url += `${orderInfo[i].name}: ${orderInfo[i].value}&`;
@@ -56,7 +56,7 @@ var iceDealer_Mark_II;
     function handleStateChange(_event) {
         let xhr = _event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
-            document.getElementById("serverID").innerHTML = xhr.response;
+            document.getElementById("response").innerHTML = xhr.response;
         }
     }
     /*function generateUrl(): void {

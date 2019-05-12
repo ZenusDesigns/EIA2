@@ -36,7 +36,7 @@ namespace iceDealer_Mark_II {
     }
     function generateURL(): void {
         let orderInfo: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
-        let url: string = "https://eia2-kathrin.herokuapp.com/?";
+        let url: string = "https://eia2mainbergerdaniel.herokuapp.com/?";
         for (let i: number = 0; i < orderInfo.length; i++) {
 
             if (orderInfo[i].name == "Lieferauswahl" && orderInfo[i].checked == true) {
@@ -61,7 +61,6 @@ namespace iceDealer_Mark_II {
         sendRequestWithCustomData(url);
     }
 
-
     function sendRequestWithCustomData(_url: string): void {
         let xhr: XMLHttpRequest = new XMLHttpRequest();
         xhr.open("GET", _url, true);
@@ -72,7 +71,7 @@ namespace iceDealer_Mark_II {
     function handleStateChange(_event: ProgressEvent): void {
         let xhr: XMLHttpRequest = <XMLHttpRequest>_event.target;
         if (xhr.readyState == XMLHttpRequest.DONE) {
-            document.getElementById("serverID").innerHTML = xhr.response;
+            document.getElementById("response").innerHTML = xhr.response;
         }
     }
 
