@@ -1,9 +1,9 @@
 import * as Http from "http"; // Node-Modul wird aufgerufen/genutzt
 import * as Url from "url";
-import * as Mongo from "mongodb";
+//import * as Mongo from "mongodb";
 
 
-Mongo.connect("mongodb+srv:Monday:<roqny2-wicqav-hoKvod>@icedealermarkv-xgkle.mongodb.net/test?retryWrites=true",);
+//Mongo.connect("mongodb+srv:Monday:<roqny2-wicqav-hoKvod>@icedealermarkv-xgkle.mongodb.net/test?retryWrites=true",);
 
 //function MongoCallback(db: any):void {
 

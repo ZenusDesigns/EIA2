@@ -2,8 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const Http = require("http"); // Node-Modul wird aufgerufen/genutzt
 const Url = require("url");
-const Mongo = require("mongodb");
-Mongo.connect("mongodb+srv:Monday:<roqny2-wicqav-hoKvod>@icedealermarkv-xgkle.mongodb.net/test?retryWrites=true");
+//import * as Mongo from "mongodb";
+//Mongo.connect("mongodb+srv:Monday:<roqny2-wicqav-hoKvod>@icedealermarkv-xgkle.mongodb.net/test?retryWrites=true",);
 //function MongoCallback(db: any):void {
 //};
 console.log("Starting server"); //Console gibt "starting Server" aus 
