@@ -2,16 +2,18 @@
 	"name": "miniserver",
 	"version": "1.0.0",
 	"description": "Minimal server just bouncing the URL",
-	"author": "Ich, adapted by Mir",
+	"author": "Ja Ich",
 	"main": "Server.js",
 	"scripts": {
-		"start": "node Aufgabe_7/server/server.js"
+		"start": "node Aufgabe_9/Server/Server.js"
 	},
 	"engines": {
-		"node": "8.11.3"
+		"node": "8.11.3",
+		"mongodb": "^3.2.5"
 	},
 	"dependencies": {
 		"@types/mongodb": "^3.1.27",
-		"@types/node": "^11.13.9"
+		"@types/node": "^11.13.8",
+		"mongodb": "^3.2.5"
 	}
 }
