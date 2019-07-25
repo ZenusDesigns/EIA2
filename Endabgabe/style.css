@@ -1,22 +1,15 @@
-.PosContainerScoreboard {
-    position: relative;
-
+#ContainerScoreboard {
+    position: absolute;
+    width: 200px;
+    border-color: red;
+    border-width: 4px;
     left: 1100px;
-    
-    min-height: 200px;
-    
-    display: inline;
-    
-    background-color: black;
-    
-    color: red;
+    border-style: solid;
 }
 
 #ContainerScoreboard{
     
     display: block;
-    background-color: black;
-    color: white;
 }
 #ContainerScoreboard div{
     margin: 7px 10px 7px 10px;
