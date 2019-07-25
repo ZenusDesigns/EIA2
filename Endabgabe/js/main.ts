@@ -83,13 +83,13 @@ namespace Task_11 {
             arrayAll[i].update();
             if (fishPlayer.kanibalism(arrayAll[i]) == true) {
                 arrayAll.splice(i,1);
+                inputPlayerName = prompt("Your score: " + highscore, "Your Name" );
+                insert();
+                refresh(); 
             }
             else if(player.kanibalism(arrayAll[i]) == false) {
                 arrayAll.splice(0, arrayAll.length);
-                document.getElementById("gameOver").style.display = "block";
-                inputPlayerName = prompt("Your score: " + highscore, "Your Name" );
-                insert();
-                refresh();  
+                 
             }
         }
         fishPlayer.update();

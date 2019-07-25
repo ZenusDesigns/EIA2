@@ -63,13 +63,12 @@ var Task_11;
             arrayAll[i].update();
             if (fishPlayer.kanibalism(arrayAll[i]) == true) {
                 arrayAll.splice(i, 1);
-            }
-            else if (player.kanibalism(arrayAll[i]) == false) {
-                arrayAll.splice(0, arrayAll.length);
-                document.getElementById("gameOver").style.display = "block";
                 Task_11.inputPlayerName = prompt("Your score: " + Task_11.highscore, "Your Name");
                 Task_11.insert();
                 Task_11.refresh();
+            }
+            else if (player.kanibalism(arrayAll[i]) == false) {
+                arrayAll.splice(0, arrayAll.length);
             }
         }
         fishPlayer.update();
