@@ -56,19 +56,21 @@ var Task_11;
             }
         }
         kanibalism(fish) {
-            if (Math.sqrt(Math.pow(Math.abs(this.x - fish.x), 2) + Math.pow(Math.abs(this.y - fish.y), 2)) < 50 && fish.size > 0) {
+            let xDistance = Math.abs(this.x - fish.x);
+            let yDistance = Math.abs(this.y - fish.y);
+            if (Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2)) < 50) {
                 if (this.size > fish.size) {
                     this.size++;
                     Task_11.highscore += 100;
-                    return true;
+                    return "dead";
                 }
                 else {
                     alert("U DEAD");
-                    return false;
+                    return "gameover";
                 }
             }
             else
-                return false;
+                return "nothing";
         }
         move() {
             this.x += this.dx;

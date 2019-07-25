@@ -55,23 +55,30 @@ var Task_11;
         }
         update();
     }
+    function deleteObject(object) {
+        for (let i = 0; i < arrayAll.length; i++) {
+            if (arrayAll[i] == object) {
+                arrayAll.splice(i, 1);
+            }
+        }
+    }
     function update() {
         window.setTimeout(update, 1000 / fps);
         Task_11.rnd.clearRect(0, 0, Task_11.cvs.width, Task_11.cvs.height);
         Task_11.rnd.putImageData(img, 0, 0);
+        fishPlayer.update();
         for (let i = 0; i < arrayAll.length; i++) {
             arrayAll[i].update();
-            if (fishPlayer.kanibalism(arrayAll[i]) == true) {
-                arrayAll.splice(i, 1);
+            if (player.kanibalism(arrayAll[i]) == "dead") {
+                deleteObject(arrayAll[i]);
+            }
+            else if (player.kanibalism(arrayAll[i]) == "gameover") {
+                arrayAll.splice(0, arrayAll.length);
                 Task_11.inputPlayerName = prompt("Your score: " + Task_11.highscore, "Your Name");
                 Task_11.insert();
                 Task_11.refresh();
             }
-            else if (player.kanibalism(arrayAll[i]) == false) {
-                arrayAll.splice(0, arrayAll.length);
-            }
         }
-        fishPlayer.update();
         Task_11.rnd.fillStyle = "black";
         Task_11.rnd.font = "20px Arial";
         Task_11.rnd.fillText("Points: " + Task_11.highscore.toString(), 950, 80);

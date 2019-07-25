@@ -74,26 +74,32 @@ namespace Task_11 {
         update();
     }
 
+    function deleteObject(object: Moving) {
+        for (let i: number = 0; i < arrayAll.length; i++) {
+            if (arrayAll[i] == object) {
+                arrayAll.splice(i, 1);
+            }
+        }
+    }
+
     function update(): void {
         window.setTimeout(update, 1000 / fps);
         rnd.clearRect(0, 0, cvs.width, cvs.height);
         rnd.putImageData(img, 0, 0);
 
-        for (let i: number = 0; i < arrayAll.length; i++) {
-            arrayAll[i].update();
-            if (fishPlayer.kanibalism(arrayAll[i]) == true) {
-                arrayAll.splice(i,1);
-                inputPlayerName = prompt("Your score: " + highscore, "Your Name" );
-                insert();
-                refresh(); 
-            }
-            else if(player.kanibalism(arrayAll[i]) == false) {
-                arrayAll.splice(0, arrayAll.length);
-                 
-            }
-        }
         fishPlayer.update();
 
+        for (let i: number = 0; i < arrayAll.length; i++) {
+            arrayAll[i].update();
+            if(player.kanibalism(arrayAll[i]) == "dead") {
+                deleteObject(arrayAll[i]);
+            } else if(player.kanibalism(arrayAll[i]) == "gameover") {
+                arrayAll.splice(0, arrayAll.length);
+                inputPlayerName = prompt("Your score: " + highscore, "Your Name" );
+                insert();
+                refresh();  
+            }
+        }
         
         rnd.fillStyle = "black";
 		rnd.font = "20px Arial";

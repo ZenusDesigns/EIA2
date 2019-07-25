@@ -81,20 +81,22 @@ namespace Task_11 {
             }
         }
 
-        kanibalism(fish: Moving): boolean {
-            if (Math.sqrt(Math.pow(Math.abs(this.x - fish.x), 2) + Math.pow(Math.abs(this.y - fish.y), 2)) < 50 && fish.size > 0) {
+        kanibalism(fish: Moving): string {
+            let xDistance: number = Math.abs(this.x - fish.x)
+            let yDistance: number = Math.abs(this.y - fish.y)
+            if (Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2)) < 50 ) {
                 if (this.size > fish.size) {
                     this.size++;
                     highscore += 100;
-                    return true;
+                    return "dead";
                     
                 }
                 else {
                     alert("U DEAD");
-                    return false;
+                    return "gameover";
                 }
             }
-            else return false;
+            else return "nothing";
 
 
         }
