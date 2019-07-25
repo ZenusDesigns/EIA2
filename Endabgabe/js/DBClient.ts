@@ -6,7 +6,7 @@ namespace Task_11 {
 
     export function insert(): void {
         let query: string = "command=insert";
-        query += "&name=" + inputPlayerName;
+        query += "&playername=" + inputPlayerName;
         query += "&score=" + highscore;
         sendRequest(query, handleInsertResponse);
     }

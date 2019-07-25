@@ -4,7 +4,7 @@ var Task_11;
     let serverAddress = "https://eia2mainbergerdaniel.herokuapp.com/";
     function insert() {
         let query = "command=insert";
-        query += "&name=" + Task_11.inputPlayerName;
+        query += "&playername=" + Task_11.inputPlayerName;
         query += "&score=" + Task_11.highscore;
         sendRequest(query, handleInsertResponse);
     }
