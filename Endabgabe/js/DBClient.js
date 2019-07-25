@@ -32,7 +32,7 @@ var Task_11;
             let allPlayersArray = JSON.parse(xhr.response);
             document.getElementById("playername").innerHTML = "";
             document.getElementById("score").innerHTML = "";
-            for (let i = allPlayersArray.length - 4; i < allPlayersArray.length; i++) {
+            for (let i = allPlayersArray.length - 8; i < allPlayersArray.length; i++) {
                 document.getElementById("playername").innerHTML += `<div>${allPlayersArray[i].playername} : ${allPlayersArray[i].score}</div>`;
             }
         }

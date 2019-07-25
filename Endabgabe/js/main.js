@@ -6,12 +6,9 @@ var Task_11;
     Task_11.highscore = 0;
     let fps = 30;
     let img;
-    let player;
     function init() {
         Task_11.cvs = document.getElementsByTagName("canvas")[0];
         Task_11.rnd = Task_11.cvs.getContext("2d");
-        Task_11.insert();
-        Task_11.refresh();
         drawWorld();
         img = Task_11.rnd.getImageData(0, 0, Task_11.cvs.width, Task_11.cvs.height);
         fishPlayer = new Task_11.FishPlayer();
@@ -41,18 +38,18 @@ var Task_11;
             arrayAll.push(fishB);
             fishB.draw();
         }
-        for (let i = 0; i <= 50; i++) {
-            let x = Math.random() * Task_11.cvs.width;
-            let y = Math.random() * Task_11.cvs.height;
-            let dy = Math.random() * -2 - 1;
-            let bubbleV2;
-            bubbleV2 = new Task_11.Bubbles2();
-            bubbleV2.x = x;
-            bubbleV2.y = y;
-            bubbleV2.dy = dy;
-            arrayAll.push(bubbleV2);
-            bubbleV2.draw();
-        }
+        /* for (let i: number = 0; i <= 50; i++) {
+             let x: number = Math.random() * cvs.width;
+             let y: number = Math.random() * cvs.height;
+             let dy: number = Math.random() * -2 - 1;
+             let bubbleV2: Bubbles2;
+             bubbleV2 = new Bubbles2();
+             bubbleV2.x = x;
+             bubbleV2.y = y;
+             bubbleV2.dy = dy;
+             arrayAll.push(bubbleV2);
+             bubbleV2.draw();
+         }*/
         update();
     }
     function deleteObject(object) {
@@ -69,10 +66,10 @@ var Task_11;
         fishPlayer.update();
         for (let i = 0; i < arrayAll.length; i++) {
             arrayAll[i].update();
-            if (player.kanibalism(arrayAll[i]) == "dead") {
+            if (fishPlayer.kanibalism(arrayAll[i]) == "dead") {
                 deleteObject(arrayAll[i]);
             }
-            else if (player.kanibalism(arrayAll[i]) == "gameover") {
+            else if (fishPlayer.kanibalism(arrayAll[i]) == "gameover") {
                 arrayAll.splice(0, arrayAll.length);
                 Task_11.inputPlayerName = prompt("Your score: " + Task_11.highscore, "Your Name");
                 Task_11.insert();

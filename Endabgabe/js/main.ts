@@ -9,15 +9,13 @@ namespace Task_11 {
     export let inputPlayerName: string;
     let fps: number = 30;
     let img: ImageData;
-    let player: FishPlayer;
 
 
     function init(): void {
         cvs = document.getElementsByTagName("canvas")[0];
         rnd = cvs.getContext("2d");
 
-        insert();
-        refresh();
+    
 
         drawWorld();
 
@@ -59,7 +57,7 @@ namespace Task_11 {
 
 
 
-        for (let i: number = 0; i <= 50; i++) {
+       /* for (let i: number = 0; i <= 50; i++) {
             let x: number = Math.random() * cvs.width;
             let y: number = Math.random() * cvs.height;
             let dy: number = Math.random() * -2 - 1;
@@ -70,7 +68,7 @@ namespace Task_11 {
             bubbleV2.dy = dy;
             arrayAll.push(bubbleV2);
             bubbleV2.draw();
-        }
+        }*/
         update();
     }
 
@@ -91,9 +89,9 @@ namespace Task_11 {
 
         for (let i: number = 0; i < arrayAll.length; i++) {
             arrayAll[i].update();
-            if(player.kanibalism(arrayAll[i]) == "dead") {
+            if(fishPlayer.kanibalism(arrayAll[i]) == "dead") {
                 deleteObject(arrayAll[i]);
-            } else if(player.kanibalism(arrayAll[i]) == "gameover") {
+            } else if(fishPlayer.kanibalism(arrayAll[i]) == "gameover") {
                 arrayAll.splice(0, arrayAll.length);
                 inputPlayerName = prompt("Your score: " + highscore, "Your Name" );
                 insert();

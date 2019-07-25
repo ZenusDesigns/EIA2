@@ -75,19 +75,6 @@ var Task_11;
         move() {
             this.x += this.dx;
             this.y += this.dy;
-            //*
-            //if (this.x > cvs.width) {
-            //    this.x = cvs.width;
-            // }
-            //else if (this.x > 0) {
-            //     this.x = 0;
-            // }
-            //else if (this.y > cvs.width) {
-            // this.y = cvs.width;
-            //}
-            //else if (this.y > 0) {
-            //    this.y = 0;
-            // }
         }
         update() {
             this.draw();

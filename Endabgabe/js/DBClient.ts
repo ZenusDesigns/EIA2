@@ -38,7 +38,7 @@ namespace Task_11 {
             document.getElementById("playername").innerHTML = "";
             document.getElementById("score").innerHTML = "";
 
-            for (let i:number = allPlayersArray.length-4; i < allPlayersArray.length; i++) {
+            for (let i:number = allPlayersArray.length-8; i < allPlayersArray.length; i++) {
                 document.getElementById("playername").innerHTML += `<div>${allPlayersArray[i].playername} : ${allPlayersArray[i].score}</div>`;
             }
             }
