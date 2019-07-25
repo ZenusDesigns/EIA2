@@ -6,9 +6,12 @@ var Task_11;
     Task_11.highscore = 0;
     let fps = 30;
     let img;
+    let player;
     function init() {
         Task_11.cvs = document.getElementsByTagName("canvas")[0];
         Task_11.rnd = Task_11.cvs.getContext("2d");
+        Task_11.insert();
+        Task_11.refresh();
         drawWorld();
         img = Task_11.rnd.getImageData(0, 0, Task_11.cvs.width, Task_11.cvs.height);
         fishPlayer = new Task_11.FishPlayer();
@@ -60,6 +63,13 @@ var Task_11;
             arrayAll[i].update();
             if (fishPlayer.kanibalism(arrayAll[i]) == true) {
                 arrayAll.splice(i, 1);
+            }
+            else if (player.kanibalism(arrayAll[i]) == false) {
+                arrayAll.splice(0, arrayAll.length);
+                document.getElementById("gameOver").style.display = "block";
+                Task_11.inputPlayerName = prompt("Your score: " + Task_11.highscore, "Your Name");
+                Task_11.insert();
+                Task_11.refresh();
             }
         }
         fishPlayer.update();

@@ -1,0 +1,23 @@
+.PosContainerScoreboard {
+    position: relative;
+
+    left: 1100px;
+    
+    min-height: 200px;
+    
+    display: inline;
+    
+    background-color: black;
+    
+    color: red;
+}
+
+#ContainerScoreboard{
+    
+    display: block;
+    background-color: black;
+    color: white;
+}
+#ContainerScoreboard div{
+    margin: 7px 10px 7px 10px;
+}

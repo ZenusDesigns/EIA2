@@ -1,37 +1,17 @@
-namespace DBClient {
-    window.addEventListener("load", init);
-    let serverAddress: string = "https://eia2mainbergerdaniel.herokuapp.com/";
+//*/
 
+namespace Task_11 {
 
-    function init(_event: Event): void {
-        console.log("Init");
-        let insertButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("insert");
-        let refreshButton: HTMLButtonElement = <HTMLButtonElement>document.getElementById("refresh");
-        insertButton.addEventListener("click", insert);
-        refreshButton.addEventListener("click", refresh);
-        document.getElementById("matrikelKennung").addEventListener("click", search);
-    }
+    let serverAddress: string = "https://eia2mainbergerdaniel.herokuapp.com/"
 
-    function insert(_event: Event): void {
-        let inputs: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
+    export function insert(): void {
         let query: string = "command=insert";
-        query += "&name=" + inputs[0].value;
-        query += "&firstname=" + inputs[1].value;
-        query += "&matrikel=" + inputs[2].value;
-        console.log(query);
+        query += "&name=" + inputPlayerName;
+        query += "&score=" + highscore;
         sendRequest(query, handleInsertResponse);
     }
 
-    function search(_event: Event):void{
-        let inputs: HTMLCollectionOf<HTMLInputElement> = document.getElementsByTagName("input");
-        let query: string = "command=search";
-        query += "&matrikel=" + inputs[3].value;
-        console.log(query);
-        sendRequest(query, handleFindResponse);
-
-    }
-
-    function refresh(_event: Event): void {
+    export function refresh(): void {
         let query: string = "command=refresh";
         sendRequest(query, handleFindResponse);
     }
@@ -53,10 +33,16 @@ namespace DBClient {
     function handleFindResponse(_event: ProgressEvent): void {
         let xhr: XMLHttpRequest = (<XMLHttpRequest>_event.target);
         if (xhr.readyState == XMLHttpRequest.DONE) {
-            let output: HTMLTextAreaElement = document.getElementsByTagName("textarea")[0];
-            output.value = xhr.response;
-            let responseAsJson: JSON = JSON.parse(xhr.response);
-            console.log(responseAsJson);
+            let allPlayersArray: GameData[] = JSON.parse(xhr.response);
+
+            document.getElementById("playername").innerHTML = "";
+            document.getElementById("score").innerHTML = "";
+
+            for (let i:number = allPlayersArray.length-4; i < allPlayersArray.length; i++) {
+                document.getElementById("playername").innerHTML += `<div>${allPlayersArray[i].playername} : ${allPlayersArray[i].score}</div>`;
+            }
+            }
         }
     }
-}
+
+

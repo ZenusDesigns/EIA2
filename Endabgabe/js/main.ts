@@ -6,13 +6,18 @@ namespace Task_11 {
     let arrayAll: Moving[] = [];
     let fishPlayer: FishPlayer;
     export let highscore: number = 0;
+    export let inputPlayerName: string;
     let fps: number = 30;
     let img: ImageData;
+    let player: FishPlayer;
 
 
     function init(): void {
         cvs = document.getElementsByTagName("canvas")[0];
         rnd = cvs.getContext("2d");
+
+        insert();
+        refresh();
 
         drawWorld();
 
@@ -79,8 +84,16 @@ namespace Task_11 {
             if (fishPlayer.kanibalism(arrayAll[i]) == true) {
                 arrayAll.splice(i,1);
             }
+            else if(player.kanibalism(arrayAll[i]) == false) {
+                arrayAll.splice(0, arrayAll.length);
+                document.getElementById("gameOver").style.display = "block";
+                inputPlayerName = prompt("Your score: " + highscore, "Your Name" );
+                insert();
+                refresh();  
+            }
         }
         fishPlayer.update();
+
         
         rnd.fillStyle = "black";
 		rnd.font = "20px Arial";

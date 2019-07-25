@@ -1,9 +1,8 @@
-interface AssocStringString {
+interface Highscores {
     [key: string]: string;
 }
 
-interface StudentData {
-    name: string;
-    firstname: string;
-    matrikel: number;
+interface GameData {
+    playername: string;
+    score: number;
 }
