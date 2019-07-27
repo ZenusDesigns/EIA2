@@ -1,3 +1,18 @@
+#ContainerScoreboard {
+
+	margin-top: 50px ;
+	margin-bottom: 50px ;
+	margin-left: 300px;
+	margin-right: 300px;
+	text-align: center;
+    border-color: white;
+    border-width: 2px;
+    border-style: solid;
+}
+
+
+
+
 h1 {
 
    font-family: 'Knewave', cursive;

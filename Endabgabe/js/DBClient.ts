@@ -37,12 +37,10 @@ namespace Task_11 {
 
             document.getElementById("playername").innerHTML = "";
             document.getElementById("score").innerHTML = "";
-            document.getElementById("startplayername").innerHTML = "";
-            document.getElementById("startscore").innerHTML = "";
+            
 
             for (let i:number = allPlayersArray.length-8; i < allPlayersArray.length; i++) {
                 document.getElementById("playername").innerHTML += `<div>${allPlayersArray[i].playername} : ${allPlayersArray[i].score}</div>`;
-                document.getElementById("startplayername").innerHTML += `<div>${allPlayersArray[i].playername} : ${allPlayersArray[i].score}</div>`;
 
             }
             }
