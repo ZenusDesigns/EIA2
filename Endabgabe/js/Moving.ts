@@ -1,4 +1,4 @@
-namespace Task_11 {
+namespace UnderTheSea {
 
     export class Moving {
         size: number;

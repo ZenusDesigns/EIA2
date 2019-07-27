@@ -1,4 +1,4 @@
-namespace Task_11 {
+namespace UnderTheSea {
 
     document.addEventListener("DOMContentLoaded", init);
     export let rnd: CanvasRenderingContext2D;
@@ -14,25 +14,16 @@ namespace Task_11 {
     function init(): void {
         cvs = document.getElementsByTagName("canvas")[0];
         rnd = cvs.getContext("2d");
-
-    
-
         drawWorld();
-
         img = rnd.getImageData(0, 0, cvs.width, cvs.height);
-
         fishPlayer = new FishPlayer();
         fishPlayer.draw();
-
         document.addEventListener("keydown", movementPlayer);
-
-
         refresh();
-
 
         for (let i: number = 0; i <= 10; i++) {
             let x: number = Math.random() * cvs.width + 650;
-            let y: number = Math.random() * cvs.height ;
+            let y: number = Math.random() * cvs.height;
             let dx: number = Math.random() * 15;
             let fishE: FishsE;
             fishE = new FishsE();
@@ -42,11 +33,10 @@ namespace Task_11 {
             arrayAll.push(fishE);
             fishE.draw();
         }
-
         for (let i: number = 0; i <= 5; i++) {
             let x: number = Math.random() * cvs.width;
-            let y: number = Math.random() * cvs.height ;
-            let dx: number = Math.random() * 20 ;
+            let y: number = Math.random() * cvs.height;
+            let dx: number = Math.random() * 20;
             let fishB: FishsB;
             fishB = new FishsB();
             fishB.x = x;
@@ -55,32 +45,15 @@ namespace Task_11 {
             arrayAll.push(fishB);
             fishB.draw();
         }
-
-
-
-       /* for (let i: number = 0; i <= 50; i++) {
-            let x: number = Math.random() * cvs.width;
-            let y: number = Math.random() * cvs.height;
-            let dy: number = Math.random() * -2 - 1;
-            let bubbleV2: Bubbles2;
-            bubbleV2 = new Bubbles2();
-            bubbleV2.x = x;
-            bubbleV2.y = y;
-            bubbleV2.dy = dy;
-            arrayAll.push(bubbleV2);
-            bubbleV2.draw();
-        }*/
         update();
     }
-
-    function deleteObject(object: Moving) {
+    function clear(object: Moving) {
         for (let i: number = 0; i < arrayAll.length; i++) {
             if (arrayAll[i] == object) {
                 arrayAll.splice(i, 1);
             }
         }
     }
-
     function update(): void {
         window.setTimeout(update, 1000 / fps);
         rnd.clearRect(0, 0, cvs.width, cvs.height);
@@ -90,21 +63,23 @@ namespace Task_11 {
 
         for (let i: number = 0; i < arrayAll.length; i++) {
             arrayAll[i].update();
-            if(fishPlayer.kanibalism(arrayAll[i]) == "dead") {
-                deleteObject(arrayAll[i]);
-            } else if(fishPlayer.kanibalism(arrayAll[i]) == "gameover") {
+            if (fishPlayer.kanibalism(arrayAll[i]) == "dead") {
+                clear(arrayAll[i]);
+            } else if (fishPlayer.kanibalism(arrayAll[i]) == "gameover") {
                 arrayAll.splice(0, arrayAll.length);
-                inputPlayerName = prompt("Your score: " + highscore, "Your Name" );
+                inputPlayerName = prompt("Your score: " + highscore, "Your Name");
                 insert();
-                refresh();  
+                refresh();
             }
-        }
-        
+            else if (fishPlayer.kanibalism(arrayAll[i]) == "win") {
+                inputPlayerName = prompt("Your score: " + highscore, "Your Name");
+                insert();
+                refresh();
+        }}
         rnd.fillStyle = "black";
-		rnd.font = "20px Arial";
-		rnd.fillText("Points: " + highscore.toString(), 950, 40);
+        rnd.font = "20px Arial";
+        rnd.fillText("Points: " + highscore.toString(), 950, 40);
     }
-
 
     function movementPlayer(e: KeyboardEvent): void {
 
@@ -125,10 +100,6 @@ namespace Task_11 {
         }
 
 
-
-
-
-
     }
 
     function drawWorld(): void {
@@ -139,13 +110,10 @@ namespace Task_11 {
         rnd.fillStyle = water;
         rnd.fillRect(0, 0, cvs.width, cvs.height);
 
-
         let ground: Path2D = new Path2D();
         ground.rect(0, 400, 1080, 400);
         rnd.fillStyle = "#c2b280";
         rnd.fill(ground);
-
-
         for (let i: number = 0; i < 1000; i++) {
             let _x: number = Math.random() * cvs.width;
             let _y: number = Math.random() * 600 + 400;
@@ -154,7 +122,6 @@ namespace Task_11 {
             rnd.fillStyle = "#565257";
             rnd.fill(gravel);
         }
-
         for (let i: number = 0; i < 150; i++) {
             let grass: Path2D = new Path2D();
             let _x: number = Math.random() * cvs.width;
@@ -168,10 +135,5 @@ namespace Task_11 {
             rnd.strokeStyle = "#002300";
             rnd.stroke(grass);
         }
-
-
-
-
-
     }
 }

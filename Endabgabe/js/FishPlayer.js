@@ -1,11 +1,17 @@
-var Task_11;
-(function (Task_11) {
+/*
+Aufgabe:(Endabagbe -  Canvas - TIAABF)
+Name: Daniel Mainberger
+Matrikel: (260566)
+Datum: (24.07.2019)
+*/
+var UnderTheSea;
+(function (UnderTheSea) {
     class FishPlayer {
         constructor() {
             this.size = 10;
             this.direction = "rechts";
-            this.x = Task_11.cvs.width / 2;
-            this.y = Task_11.cvs.height / 2;
+            this.x = UnderTheSea.cvs.width / 2;
+            this.y = UnderTheSea.cvs.height / 2;
             this.dx = 0;
             this.dy = 0;
         }
@@ -13,46 +19,46 @@ var Task_11;
             if (this.direction == "rechts") {
                 let body = new Path2D();
                 body.ellipse(this.x, this.y, (this.size * 15) / 15, (this.size * 30) / 15, 1.5, 0, 2 * Math.PI);
-                Task_11.rnd.fillStyle = "#f00";
-                Task_11.rnd.fill(body);
+                UnderTheSea.rnd.fillStyle = "#f00";
+                UnderTheSea.rnd.fill(body);
                 let tail = new Path2D();
                 tail.moveTo(this.x - (25 * this.size) / 15, this.y + (2 * this.size) / 15);
                 tail.lineTo(this.x - (50 * this.size) / 15, this.y + (5 * this.size) / 15);
                 tail.lineTo(this.x - (50 * this.size) / 15, this.y - (1 * this.size) / 15);
-                Task_11.rnd.fillStyle = "#f00";
-                Task_11.rnd.fill(tail);
+                UnderTheSea.rnd.fillStyle = "#f00";
+                UnderTheSea.rnd.fill(tail);
                 let eye = new Path2D();
                 eye.arc(this.x + 15, this.y - 2, 4, 0, 2 * Math.PI);
-                Task_11.rnd.fillStyle = "#2F4F4F";
-                Task_11.rnd.fill(eye);
-                Task_11.rnd.strokeStyle = "#000000";
-                Task_11.rnd.stroke(eye);
+                UnderTheSea.rnd.fillStyle = "#2F4F4F";
+                UnderTheSea.rnd.fill(eye);
+                UnderTheSea.rnd.strokeStyle = "#000000";
+                UnderTheSea.rnd.stroke(eye);
                 let innereye = new Path2D();
                 innereye.arc(this.x + 15, this.y - 2, 2, 0, 2 * Math.PI);
-                Task_11.rnd.fillStyle = "#000000";
-                Task_11.rnd.fill(innereye);
+                UnderTheSea.rnd.fillStyle = "#000000";
+                UnderTheSea.rnd.fill(innereye);
             }
             else {
                 let body = new Path2D();
                 body.ellipse(this.x, this.y, (this.size * 15) / 15, (this.size * 30) / 15, 1.5, 0, 2 * Math.PI);
-                Task_11.rnd.fillStyle = "#f00";
-                Task_11.rnd.fill(body);
+                UnderTheSea.rnd.fillStyle = "#f00";
+                UnderTheSea.rnd.fill(body);
                 let tail = new Path2D();
                 tail.moveTo(this.x + (25 * this.size) / 15, this.y + (2 * this.size) / 15);
                 tail.lineTo(this.x + (50 * this.size) / 15, this.y + (5 * this.size) / 15);
                 tail.lineTo(this.x + (50 * this.size) / 15, this.y - (1 * this.size) / 15);
-                Task_11.rnd.fillStyle = "#f00";
-                Task_11.rnd.fill(tail);
+                UnderTheSea.rnd.fillStyle = "#f00";
+                UnderTheSea.rnd.fill(tail);
                 let eye = new Path2D();
                 eye.arc(this.x - 15, this.y - 2, 4, 0, 2 * Math.PI);
-                Task_11.rnd.fillStyle = "#2F4F4F";
-                Task_11.rnd.fill(eye);
-                Task_11.rnd.strokeStyle = "#000000";
-                Task_11.rnd.stroke(eye);
+                UnderTheSea.rnd.fillStyle = "#2F4F4F";
+                UnderTheSea.rnd.fill(eye);
+                UnderTheSea.rnd.strokeStyle = "#000000";
+                UnderTheSea.rnd.stroke(eye);
                 let innereye = new Path2D();
                 innereye.arc(this.x - 15, this.y - 2, 2, 0, 2 * Math.PI);
-                Task_11.rnd.fillStyle = "#000000";
-                Task_11.rnd.fill(innereye);
+                UnderTheSea.rnd.fillStyle = "#000000";
+                UnderTheSea.rnd.fill(innereye);
             }
         }
         kanibalism(fish) {
@@ -61,12 +67,16 @@ var Task_11;
             if (Math.sqrt(Math.pow(xDistance, 2) + Math.pow(yDistance, 2)) < 50) {
                 if (this.size > fish.size) {
                     this.size++;
-                    Task_11.highscore += 100;
+                    UnderTheSea.highscore += 100;
                     return "dead";
                 }
                 else {
                     alert("U DEAD");
                     return "gameover";
+                }
+                if (UnderTheSea.highscore = 1700) {
+                    alert("U WON");
+                    return "win";
                 }
             }
             else
@@ -80,6 +90,6 @@ var Task_11;
             this.draw();
         }
     }
-    Task_11.FishPlayer = FishPlayer;
-})(Task_11 || (Task_11 = {}));
+    UnderTheSea.FishPlayer = FishPlayer;
+})(UnderTheSea || (UnderTheSea = {}));
 //# sourceMappingURL=FishPlayer.js.map

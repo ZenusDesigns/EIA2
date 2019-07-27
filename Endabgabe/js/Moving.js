@@ -1,11 +1,11 @@
-var Task_11;
-(function (Task_11) {
+var UnderTheSea;
+(function (UnderTheSea) {
     class Moving {
         constructor() {
         }
         update() { }
         ;
     }
-    Task_11.Moving = Moving;
-})(Task_11 || (Task_11 = {}));
+    UnderTheSea.Moving = Moving;
+})(UnderTheSea || (UnderTheSea = {}));
 //# sourceMappingURL=Moving.js.map

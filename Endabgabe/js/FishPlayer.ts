@@ -1,4 +1,11 @@
-namespace Task_11 {
+/*     
+Aufgabe:(Endabagbe -  Canvas - TIAABF) 
+Name: Daniel Mainberger
+Matrikel: (260566)
+Datum: (24.07.2019) 
+*/
+
+namespace UnderTheSea {
 
 
     export class FishPlayer {
@@ -94,6 +101,10 @@ namespace Task_11 {
                 else {
                     alert("U DEAD");
                     return "gameover";
+                }
+                if (highscore=1700) {
+                    alert("U WON");
+                    return "win";
                 }
             }
             else return "nothing";

@@ -1,6 +1,11 @@
-//*/
+/*     
+Aufgabe:(Endabagbe -  Canvas - TIAABF) 
+Name: Daniel Mainberger
+Matrikel: (260566)
+Datum: (24.07.2019) 
+*/
 
-namespace Task_11 {
+namespace UnderTheSea {
 
     let serverAddress: string = "https://eia2mainbergerdaniel.herokuapp.com/"
 

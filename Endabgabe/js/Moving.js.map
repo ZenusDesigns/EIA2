@@ -1,1 +1,1 @@
-{"version":3,"file":"Moving.js","sourceRoot":"","sources":["Moving.ts"],"names":[],"mappings":"AAAA,IAAU,OAAO,CAchB;AAdD,WAAU,OAAO;IAEb,MAAa,MAAM;QAOf;QAEA,CAAC;QACD,MAAM,KAAK,CAAC;QAAA,CAAC;KAChB;IAXY,cAAM,SAWlB,CAAA;AACL,CAAC,EAdS,OAAO,KAAP,OAAO,QAchB"}
+{"version":3,"file":"Moving.js","sourceRoot":"","sources":["Moving.ts"],"names":[],"mappings":"AAAA,IAAU,WAAW,CAcpB;AAdD,WAAU,WAAW;IAEjB,MAAa,MAAM;QAOf;QAEA,CAAC;QACD,MAAM,KAAK,CAAC;QAAA,CAAC;KAChB;IAXY,kBAAM,SAWlB,CAAA;AACL,CAAC,EAdS,WAAW,KAAX,WAAW,QAcpB"}

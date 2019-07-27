@@ -1,19 +1,24 @@
-//*/
-var Task_11;
-(function (Task_11) {
+/*
+Aufgabe:(Endabagbe -  Canvas - TIAABF)
+Name: Daniel Mainberger
+Matrikel: (260566)
+Datum: (24.07.2019)
+*/
+var UnderTheSea;
+(function (UnderTheSea) {
     let serverAddress = "https://eia2mainbergerdaniel.herokuapp.com/";
     function insert() {
         let query = "command=insert";
-        query += "&playername=" + Task_11.inputPlayerName;
-        query += "&score=" + Task_11.highscore;
+        query += "&playername=" + UnderTheSea.inputPlayerName;
+        query += "&score=" + UnderTheSea.highscore;
         sendRequest(query, handleInsertResponse);
     }
-    Task_11.insert = insert;
+    UnderTheSea.insert = insert;
     function refresh() {
         let query = "command=refresh";
         sendRequest(query, handleFindResponse);
     }
-    Task_11.refresh = refresh;
+    UnderTheSea.refresh = refresh;
     function sendRequest(_query, _callback) {
         let xhr = new XMLHttpRequest();
         xhr.open("GET", serverAddress + "?" + _query, true);
@@ -37,5 +42,5 @@ var Task_11;
             }
         }
     }
-})(Task_11 || (Task_11 = {}));
+})(UnderTheSea || (UnderTheSea = {}));
 //# sourceMappingURL=DBClient.js.map
