@@ -27,6 +27,7 @@ namespace Task_11 {
         document.addEventListener("keydown", movementPlayer);
 
 
+        refresh();
 
 
         for (let i: number = 0; i <= 10; i++) {

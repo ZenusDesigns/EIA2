@@ -14,6 +14,7 @@ var Task_11;
         fishPlayer = new Task_11.FishPlayer();
         fishPlayer.draw();
         document.addEventListener("keydown", movementPlayer);
+        Task_11.refresh();
         for (let i = 0; i <= 10; i++) {
             let x = Math.random() * Task_11.cvs.width + 650;
             let y = Math.random() * Task_11.cvs.height;
