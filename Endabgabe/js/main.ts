@@ -1,3 +1,10 @@
+/*     
+Aufgabe:(Endabagbe -  Canvas - TIAABF) 
+Name: Daniel Mainberger
+Matrikel: (260566)
+Datum: (24.07.2019) 
+*/
+
 namespace UnderTheSea {
 
     document.addEventListener("DOMContentLoaded", init);
@@ -20,6 +27,8 @@ namespace UnderTheSea {
         fishPlayer.draw();
         document.addEventListener("keydown", movementPlayer);
         refresh();
+
+         /*Generate Fish*/ 
 
         for (let i: number = 0; i <= 10; i++) {
             let x: number = Math.random() * cvs.width + 650;
@@ -47,6 +56,7 @@ namespace UnderTheSea {
         }
         update();
     }
+    /*Delete Fish from array - (Eat) */ 
     function clear(object: Moving) {
         for (let i: number = 0; i < arrayAll.length; i++) {
             if (arrayAll[i] == object) {
@@ -61,6 +71,8 @@ namespace UnderTheSea {
 
         fishPlayer.update();
 
+
+        /*Death Condition and Playername Request*/ 
         for (let i: number = 0; i < arrayAll.length; i++) {
             arrayAll[i].update();
             if (fishPlayer.kanibalism(arrayAll[i]) == "dead") {
@@ -71,18 +83,22 @@ namespace UnderTheSea {
                 insert();
                 refresh();
             }
-           
+
         }
+
+         /*On Screen Score*/ 
         rnd.fillStyle = "black";
         rnd.font = "20px Arial";
         rnd.fillText("Points: " + highscore.toString(), 950, 40);
 
-        if (highscore==1700) {
+
+         /*Win Condition and Playername Request*/ 
+        if (highscore == 1700) {
             alert("U WON");
             inputPlayerName = prompt("Your score: " + highscore, "Your Name");
-                insert();
-                refresh();
-                highscore=0;
+            insert();
+            refresh();
+            highscore = 0;
         }
     }
 

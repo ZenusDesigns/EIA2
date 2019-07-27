@@ -1,4 +1,10 @@
 /**
+ * /*     
+Aufgabe:(Endabagbe -  Canvas - TIAABF) 
+Name: Daniel Mainberger
+Matrikel: (260566)
+Datum: (24.07.2019) 
+*
  * Simple server managing between client and database
  * @author: Jirka Dell'Oro-Friedl
  * @adapted: Lukas Scheuerle
@@ -8,7 +14,6 @@ import * as Http from "http";
 import * as Url from "url";
 import * as Database from "./Database";
 
-console.log("Server starting");
 
 let port: number = Number(process.env.PORT);
 if (!port)
@@ -22,11 +27,9 @@ server.listen(port);
 
 
 function handleListen(): void {
-    console.log("Listening on port: " + port);
 }
 
 function handleRequest(_request: Http.IncomingMessage, _response: Http.ServerResponse): void {
-    console.log("Request received");
 
     let query: Highscores = <Highscores> Url.parse(_request.url, true).query;
     let command: string = query["command"];

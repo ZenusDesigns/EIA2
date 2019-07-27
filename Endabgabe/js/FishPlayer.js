@@ -16,6 +16,7 @@ var UnderTheSea;
             this.dy = 0;
         }
         draw() {
+            /*Right View Fish*/
             if (this.direction == "rechts") {
                 let body = new Path2D();
                 body.ellipse(this.x, this.y, (this.size * 15) / 15, (this.size * 30) / 15, 1.5, 0, 2 * Math.PI);
@@ -39,6 +40,7 @@ var UnderTheSea;
                 UnderTheSea.rnd.fill(innereye);
             }
             else {
+                /*Left View Fish*/
                 let body = new Path2D();
                 body.ellipse(this.x, this.y, (this.size * 15) / 15, (this.size * 30) / 15, 1.5, 0, 2 * Math.PI);
                 UnderTheSea.rnd.fillStyle = "#f00";
@@ -61,6 +63,7 @@ var UnderTheSea;
                 UnderTheSea.rnd.fill(innereye);
             }
         }
+        /*Collision Detection and Score Count*/
         kanibalism(fish) {
             let xDistance = Math.abs(this.x - fish.x);
             let yDistance = Math.abs(this.y - fish.y);

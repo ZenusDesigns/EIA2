@@ -1,5 +1,11 @@
 "use strict";
 /**
+ * /*
+Aufgabe:(Endabagbe -  Canvas - TIAABF)
+Name: Daniel Mainberger
+Matrikel: (260566)
+Datum: (24.07.2019)
+*
  * Simple server managing between client and database
  * @author: Jirka Dell'Oro-Friedl
  * @adapted: Lukas Scheuerle
@@ -8,7 +14,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const Http = require("http");
 const Url = require("url");
 const Database = require("./Database");
-console.log("Server starting");
 let port = Number(process.env.PORT);
 if (!port)
     port = 8100;
@@ -17,10 +22,8 @@ server.addListener("listening", handleListen);
 server.addListener("request", handleRequest);
 server.listen(port);
 function handleListen() {
-    console.log("Listening on port: " + port);
 }
 function handleRequest(_request, _response) {
-    console.log("Request received");
     let query = Url.parse(_request.url, true).query;
     let command = query["command"];
     switch (command) {

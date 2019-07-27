@@ -28,6 +28,9 @@ namespace UnderTheSea {
         draw(): void {
 
 
+
+
+             /*Right View Fish*/ 
             if (this.direction == "rechts") {
 
                 let body: Path2D = new Path2D();
@@ -59,6 +62,8 @@ namespace UnderTheSea {
 
             else {
 
+                 /*Left View Fish*/ 
+
                 let body: Path2D = new Path2D();
                 body.ellipse(this.x, this.y, (this.size * 15) / 15, (this.size * 30) / 15, 1.5, 0, 2 * Math.PI);
                 rnd.fillStyle = "#f00";
@@ -87,7 +92,7 @@ namespace UnderTheSea {
 
             }
         }
-
+         /*Collision Detection and Score Count*/ 
         kanibalism(fish: Moving): string {
             let xDistance: number = Math.abs(this.x - fish.x)
             let yDistance: number = Math.abs(this.y - fish.y)
@@ -102,7 +107,6 @@ namespace UnderTheSea {
                     alert("U DEAD");
                     return "gameover";
                 }
-                
             }
             else return "nothing";
 
