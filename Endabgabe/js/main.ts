@@ -101,7 +101,7 @@ namespace Task_11 {
         
         rnd.fillStyle = "black";
 		rnd.font = "20px Arial";
-		rnd.fillText("Points: " + highscore.toString(), 950, 80);
+		rnd.fillText("Points: " + highscore.toString(), 950, 40);
     }
 
 

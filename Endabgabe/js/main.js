@@ -78,7 +78,7 @@ var Task_11;
         }
         Task_11.rnd.fillStyle = "black";
         Task_11.rnd.font = "20px Arial";
-        Task_11.rnd.fillText("Points: " + Task_11.highscore.toString(), 950, 80);
+        Task_11.rnd.fillText("Points: " + Task_11.highscore.toString(), 950, 40);
     }
     function movementPlayer(e) {
         if (e.keyCode == 37) {
