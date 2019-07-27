@@ -71,14 +71,19 @@ namespace UnderTheSea {
                 insert();
                 refresh();
             }
-            else if (fishPlayer.kanibalism(arrayAll[i]) == "win") {
-                inputPlayerName = prompt("Your score: " + highscore, "Your Name");
-                insert();
-                refresh();
-        }}
+           
+        }
         rnd.fillStyle = "black";
         rnd.font = "20px Arial";
         rnd.fillText("Points: " + highscore.toString(), 950, 40);
+
+        if (highscore==1700) {
+            alert("U WON");
+            inputPlayerName = prompt("Your score: " + highscore, "Your Name");
+                insert();
+                refresh();
+                highscore=0;
+        }
     }
 
     function movementPlayer(e: KeyboardEvent): void {

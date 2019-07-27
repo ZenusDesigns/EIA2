@@ -102,10 +102,7 @@ namespace UnderTheSea {
                     alert("U DEAD");
                     return "gameover";
                 }
-                if (highscore=1700) {
-                    alert("U WON");
-                    return "win";
-                }
+                
             }
             else return "nothing";
 

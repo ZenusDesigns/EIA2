@@ -74,10 +74,6 @@ var UnderTheSea;
                     alert("U DEAD");
                     return "gameover";
                 }
-                if (UnderTheSea.highscore = 1700) {
-                    alert("U WON");
-                    return "win";
-                }
             }
             else
                 return "nothing";

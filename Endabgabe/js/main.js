@@ -64,15 +64,17 @@ var UnderTheSea;
                 UnderTheSea.insert();
                 UnderTheSea.refresh();
             }
-            else if (fishPlayer.kanibalism(arrayAll[i]) == "win") {
-                UnderTheSea.inputPlayerName = prompt("Your score: " + UnderTheSea.highscore, "Your Name");
-                UnderTheSea.insert();
-                UnderTheSea.refresh();
-            }
         }
         UnderTheSea.rnd.fillStyle = "black";
         UnderTheSea.rnd.font = "20px Arial";
         UnderTheSea.rnd.fillText("Points: " + UnderTheSea.highscore.toString(), 950, 40);
+        if (UnderTheSea.highscore == 1700) {
+            alert("U WON");
+            UnderTheSea.inputPlayerName = prompt("Your score: " + UnderTheSea.highscore, "Your Name");
+            UnderTheSea.insert();
+            UnderTheSea.refresh();
+            UnderTheSea.highscore = 0;
+        }
     }
     function movementPlayer(e) {
         if (e.keyCode == 37) {
