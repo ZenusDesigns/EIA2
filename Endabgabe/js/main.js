@@ -81,12 +81,13 @@ var UnderTheSea;
         /*Win Condition and Playername Request*/
         if (UnderTheSea.highscore == 1700) {
             alert("U WON");
-            UnderTheSea.inputPlayerName = prompt("Your score: " + UnderTheSea.highscore, "Your Name");
+            UnderTheSea.inputPlayerName = prompt("Your WIN-Score: " + UnderTheSea.highscore, "Your Name");
             UnderTheSea.insert();
             UnderTheSea.refresh();
             UnderTheSea.highscore = 0;
         }
     }
+    /*Fish-Movement per Arrowkeys*/
     function movementPlayer(e) {
         if (e.keyCode == 37) {
             fishPlayer.x -= 20;

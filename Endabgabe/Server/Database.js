@@ -1,10 +1,12 @@
 "use strict";
-/**
- Abschlussaufgabe - TIAABF
- Daniel Mainberger
- Matrikel:
+/*
+ Aufgabe:(Endabagbe -  Canvas - TIAABF)
+Name: Daniel Mainberger
+Matrikel: (260566)
+Datum: (24.07.2019)
  */
 Object.defineProperty(exports, "__esModule", { value: true });
+/*Database Connection and Commands*/
 const Mongo = require("mongodb");
 let databaseURL = "mongodb://localhost:27017";
 let databaseName = "Test";

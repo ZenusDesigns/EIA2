@@ -95,13 +95,14 @@ namespace UnderTheSea {
          /*Win Condition and Playername Request*/ 
         if (highscore == 1700) {
             alert("U WON");
-            inputPlayerName = prompt("Your score: " + highscore, "Your Name");
+            inputPlayerName = prompt("Your WIN-Score: " + highscore, "Your Name");
             insert();
             refresh();
             highscore = 0;
         }
     }
 
+     /*Fish-Movement per Arrowkeys*/ 
     function movementPlayer(e: KeyboardEvent): void {
 
         if (e.keyCode == 37) {

@@ -1,8 +1,14 @@
-/**
- Abschlussaufgabe - TIAABF 
- Daniel Mainberger
- Matrikel:
+/*
+ Aufgabe:(Endabagbe -  Canvas - TIAABF) 
+Name: Daniel Mainberger
+Matrikel: (260566)
+Datum: (24.07.2019)
  */
+
+
+/*Database Connection and Commands*/ 
+
+
 
 import * as Mongo from "mongodb";
 
