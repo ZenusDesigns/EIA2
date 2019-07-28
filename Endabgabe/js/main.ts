@@ -64,6 +64,7 @@ namespace UnderTheSea {
             }
         }
     }
+    
     function update(): void {
         window.setTimeout(update, 1000 / fps);
         rnd.clearRect(0, 0, cvs.width, cvs.height);
